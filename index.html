@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İş Birliği & Reklam | Rengarenk Dünyam (@bacilar_cetesi)</title>
+    <title>İş Birliği & Reklam Vitrini | Rengarenk Dünyam (@bacilar_cetesi)</title>
     <style>
         * {
             box-sizing: border-box;
@@ -146,75 +146,50 @@
             color: #555;
             margin-bottom: 20px;
         }
-        /* İş Birliği Özel Kartları */
-        .collab-banner {
-            background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
-            border: 2px dashed #d81b60;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .collab-banner h3 {
-            color: #d81b60;
-            font-size: 17px;
-            margin-bottom: 8px;
-        }
-        .collab-banner p {
-            font-size: 14px;
-            color: #444;
-            margin-bottom: 15px;
-        }
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .metric-card {
-            background: white;
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .metric-card h4 {
-            font-size: 16px;
-            color: #d81b60;
-            margin-bottom: 4px;
-        }
-        .metric-card span {
-            font-size: 11px;
-            color: #777;
-        }
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-        }
-        .content-card {
+        /* Video Vitrini Kartları */
+        .video-showcase-card {
             background: #fff;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border: 1px solid #efefef;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+            margin-bottom: 25px;
         }
-        .card-img {
+        .video-container {
+            position: relative;
             width: 100%;
-            height: 150px;
+            background: #000;
+            aspect-ratio: 9/16;
+            max-height: 400px;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
-        .card-body {
-            padding: 12px;
+        .video-info {
+            padding: 15px;
         }
-        .card-body h3 {
-            font-size: 15px;
-            color: #333;
-            margin-bottom: 5px;
+        .video-info h3 {
+            font-size: 16px;
+            color: #262626;
+            margin-bottom: 6px;
         }
-        .card-body p {
+        .script-box {
+            background: #fdf2f4;
+            border-left: 4px solid #d81b60;
+            padding: 10px 12px;
             font-size: 13px;
-            color: #666;
+            color: #444;
+            margin-top: 10px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        .script-box strong {
+            color: #d81b60;
+            font-style: normal;
+            display: block;
+            margin-bottom: 3px;
         }
         .contact-box {
             background: #262626;
@@ -265,7 +240,7 @@
                 <div class="stats">
                     <span><strong>13</strong> gönderi</span>
                     <span><strong>1.119</strong> takipçi</span>
-                    <span><strong>66.4B</strong> Erişim (30 gün)</span>
+                    <span><strong>66.4B</strong> Erişim</span>
                 </div>
             </div>
         </div>
@@ -280,67 +255,57 @@ Ortaya karışık vloglar Herşeyde biraz ben biraz siz bacıklarım ❤️ Kays
 
         <!-- Menü Sekmeleri -->
         <nav>
-            <a href="#isbirligi" class="active">🤝 İş Birliği & Reklam</a>
+            <a href="#reklam" class="active">🎥 Reklam & Video Örnekleri</a>
             <a href="#vloglar">🎬 Vloglar</a>
-            <a href="#kayseri">📍 Kayseri & Keşif</a>
+            <a href="#kayseri">📍 Kayseri</a>
             <a href="#hakkimda">✨ Hakkımda</a>
         </nav>
 
-        <!-- İş Birliği ve Reklam Sekmesi -->
-        <div id="isbirligi" class="section-block">
-            <div class="section-title">🤝 Marka İş Birlikleri & Sponsorluk</div>
-            <p class="section-desc">Ürününüzü veya markanızı samimi kitlemizle buluşturun, etkili dönüşümler alın.</p>
+        <!-- Reklam & Video Örnekleri Sekmesi -->
+        <div id="reklam" class="section-block">
+            <div class="section-title">🎥 Profesyonel Tanıtım & Seslendirme Vitrini</div>
+            <p class="section-desc">Markanızı kitlemizle buluştururken kullandığımız "Vay be!" dedirten video konseptleri ve hazır seslendirme örneklerimiz aşağıdadır. Videoyu oynatıp seslendirmeyi dinleyebilirsiniz!</p>
 
-            <div class="collab-banner">
-                <h3>🚀 "Vay Be!" Dedirten Etkili Tanıtım Konseptleri</h3>
-                <p>Samimi vloglar, Reels videoları ve hikaye serileriyle markanızın en doğal ve güvenilir şekilde hedef kitleye ulaşmasını sağlıyoruz.</p>
-                
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <h4>66.4K+</h4>
-                        <span>Son 30 Gün Gösterim</span>
-                    </div>
-                    <div class="metric-card">
-                        <h4>%100</h4>
-                        <span>Samimi & Aktif Kitle</span>
-                    </div>
-                    <div class="metric-card">
-                        <h4>Hızlı</h4>
-                        <span>Dönüşüm Odaklı</span>
+            <!-- Video Örnek 1 -->
+            <div class="video-showcase-card">
+                <div class="video-container">
+                    <video controls muted playsinline poster="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-holding-a-shopping-bag-while-walking-41639-large.mp4" type="video/mp4">
+                        Tarayıcınız video etiketini desteklemiyor.
+                    </video>
+                </div>
+                <div class="video-info">
+                    <h3>🛍️ Ürün & Alışveriş Deneyimi Reklamı</h3>
+                    <p>Markaların ürün lansmanları ve alışveriş konseptleri için hazırlanan yüksek etkileşimli Reels formatı.</p>
+                    <div class="script-box">
+                        <strong>🎙️ Hazır Seslendirme Metni Örneği:</strong>
+                        "Bacıklarım, günün en heyecanlı anı geldi! Kalitesine bayıldığım, gün boyu koşturmacamda bana eşlik eden bu harika ürünü mutlaka incelemelisiniz. Detaylar açıklamada!"
                     </div>
                 </div>
             </div>
 
-            <div class="section-title" style="font-size: 16px; margin-top: 20px;">✨ Reklam ve Tanıtım Formatlarımız</div>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" alt="Reels Tanıtım" class="card-img">
-                    <div class="card-body">
-                        <h3>Reels & Video Entegrasyonu</h3>
-                        <p>Akıcı günlük rutinlerin içine ustaca yerleştirilen, binlerce kişiye erişen viral video yerleşimleri.</p>
-                    </div>
+            <!-- Video Örnek 2 -->
+            <div class="video-showcase-card">
+                <div class="video-container">
+                    <video controls muted playsinline poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-drinking-coffee-in-bed-4189-large.mp4" type="video/mp4">
+                        Tarayıcınız video etiketini desteklemiyor.
+                    </video>
                 </div>
-                <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Hikaye Serisi" class="card-img">
-                    <div class="card-body">
-                        <h3>Hikaye (Story) Serileri</h3>
-                        <p>Aktif bağlantı butonları ve samimi ürün deneyimiyle anlık dönüşüm sağlayan hikaye sunumları.</p>
-                    </div>
-                </div>
-                <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" alt="Marka Lansmanı" class="card-img">
-                    <div class="card-body">
-                        <h3>Marka & Ürün Tanıtımı</h3>
-                        <p>İşletmenizin veya yeni ürününüzün detaylı incelemesiyle güven veren profesyonel tanıtım vitrini.</p>
+                <div class="video-info">
+                    <h3>☕ Günlük Yaşam & Kafe / Gıda Tanıtımı</h3>
+                    <p>Sabah rutinleri ve keyifli anların içine doğal bir şekilde entegre edilen marka tanıtım videosu.</p>
+                    <div class="script-box">
+                        <strong>🎙️ Hazır Seslendirme Metni Örneği:</strong>
+                        "Sabah kahvesiz asla diyenler, buraya! Güne enerjik başlamamın sırrı olan bu muazzam lezzetle güne 'merhaba' diyoruz. Kesinlikle denemelisiniz!"
                     </div>
                 </div>
             </div>
 
             <div class="contact-box">
-                <h3>📞 İş Birliği İçin İletişime Geçin</h3>
-                <p>Markanızı birlikte büyületelim, detaylar ve teklifler için DM üzerinden bize ulaşabilirsiniz.</p>
-                <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="dm-btn">Instagram DM ile Teklif Al</a>
+                <h3>📞 Markanız İçin Özel Reklam Teklifi Alın</h3>
+                <p>Ürününüzü en samimi dille kitlemize ulaştıralım. Hemen Instagram üzerinden bizimle iletişime geçin.</p>
+                <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="dm-btn">Instagram DM ile Hemen Başvur</a>
             </div>
         </div>
 
@@ -348,30 +313,12 @@ Ortaya karışık vloglar Herşeyde biraz ben biraz siz bacıklarım ❤️ Kays
         <div id="vloglar" class="section-block">
             <div class="section-title">🎬 Ortaya Karışık Vloglar</div>
             <p class="section-desc">Günün koşturmacası ve keyifli anlar.</p>
-            <div class="content-grid">
-                <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&q=80" alt="Vlog" class="card-img">
-                    <div class="card-body">
-                        <h3>Günlük Rutinler</h3>
-                        <p>Kanalımızdan samimi ve renkli kareler.</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Kayseri Sekmesi -->
         <div id="kayseri" class="section-block">
             <div class="section-title">📍 Kayseri Notları</div>
             <p class="section-desc">Memleketten manzaralar ve yaşamın içinden detaylar.</p>
-            <div class="content-grid">
-                <div class="content-card">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Kayseri" class="card-img">
-                    <div class="card-body">
-                        <h3>Memleket Havası</h3>
-                        <p>Kayseri'nin güzellikleri ve gezilerimiz.</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Hakkımda Sekmesi -->
