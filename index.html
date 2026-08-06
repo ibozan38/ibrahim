@@ -14,7 +14,6 @@
             min-height: 100vh;
         }
 
-        /* Sol Menü / Mobil Üst Alan */
         .sidebar {
             width: 280px;
             background: rgba(255, 255, 255, 0.95);
@@ -31,7 +30,6 @@
             margin-bottom: 25px;
         }
 
-        /* Fotoğraf yerine kusursuz emoji profil dairesi */
         .profil-ikon-kutu {
             width: 80px;
             height: 80px;
@@ -58,7 +56,6 @@
             margin: 0;
         }
 
-        /* Sekmeler */
         .menu-sekmeler {
             display: flex;
             flex-direction: column;
@@ -91,7 +88,6 @@
             transform: translateX(5px);
         }
 
-        /* Sağ Ana İçerik Alanı */
         .main-content {
             flex: 1;
             padding: 30px;
@@ -131,7 +127,6 @@
             display: block;
         }
 
-        /* Vlog Listesi */
         .vlog-listesi {
             display: flex;
             flex-direction: column;
@@ -160,7 +155,6 @@
             font-size: 12px;
             font-weight: bold;
             text-decoration: none;
-            transition: background 0.2s, color 0.2s;
         }
 
         .vlog-badge:hover {
@@ -168,7 +162,7 @@
             color: white;
         }
 
-        /* --- KEDİCİK ASİSTAN (YÜZEN WIDGET) --- */
+        /* --- YAPAY ZEKA ASİSTAN WIDGET --- */
         .floating-cat-container {
             position: fixed;
             bottom: 20px;
@@ -177,21 +171,6 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-        }
-
-        .cat-speech-bubble {
-            background: white;
-            color: #ff758c;
-            padding: 10px 14px;
-            border-radius: 15px;
-            font-size: 13px;
-            font-weight: 600;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 10px;
-            border: 2px solid #ff758c;
-            max-width: 200px;
-            text-align: center;
-            position: relative;
         }
 
         .cat-button {
@@ -206,11 +185,6 @@
             box-shadow: 0 8px 25px rgba(255, 117, 140, 0.4);
             border: 3px solid white;
             font-size: 30px;
-            transition: transform 0.3s;
-        }
-
-        .cat-button:hover {
-            transform: scale(1.1);
         }
 
         .cat-chat-modal {
@@ -226,6 +200,7 @@
             flex-direction: column;
             overflow: hidden;
             border: 2px solid #ffe6ec;
+            z-index: 99999;
         }
 
         .cat-chat-header {
@@ -307,7 +282,6 @@
             font-size: 12px;
         }
 
-        /* Mobil Uyum */
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -331,7 +305,6 @@
 </head>
 <body>
 
-    <!-- Sol Menü / Üst Alan -->
     <div class="sidebar">
         <div class="profil-bolum">
             <div class="profil-ikon-kutu">🌸</div>
@@ -341,7 +314,7 @@
         
         <div class="menu-sekmeler">
             <button class="sekme-btn aktif" onclick="sekmeDegistir('anasayfa', this)">🏠 Ana Sayfa</button>
-            <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="sekme-btn" style="display:block;">📸 Instagram (@bacilar_cetesi)</a>
+            <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="sekme-btn" style="display:block;">📸 Instagram</a>
             <a href="https://wa.me/905550600769?text=Merhaba,%20reklam%20ve%20iş%20birliği%20için%20ulaşıyorum." target="_blank" class="sekme-btn" style="display:block;">🤝 Reklam ve İş Birliği</a>
             <button class="sekme-btn" onclick="sekmeDegistir('vloglar', this)">🎥 Vloglar (Örnekler)</button>
             <button class="sekme-btn" onclick="sekmeDegistir('rutinler', this)">✨ Günlük Rutinler</button>
@@ -350,66 +323,49 @@
         </div>
     </div>
 
-    <!-- Sağ Ana İçerik Alanı -->
     <div class="main-content">
         <div class="content-card">
             
-            <!-- ANA SAYFA -->
+            <!-- ANA SAYFA (Yapay Zeka Butonu Ortaya Eklendi) -->
             <div id="anasayfa" class="sayfa-icerik aktif-icerik">
                 <h1>Hoş Geldiniz! 🌈</h1>
                 <p>Rengarenk dünyamıza, günlük vloglarımıza ve iş birliği tekliflerinize buradan ulaşabilirsiniz.</p>
-                <p>İyi ki varsınız bacıklarım! Sağ köşedeki minik kedi asistanımıza tıklayarak veya sol menüden kediciğe ulaşarak her an destek alabilirsin. ❤️</p>
+                
+                <!-- BURAYA DİREKT TIKLANABİLİR BÜYÜK YAPAY ZEKA ASİSTAN KUTUSU EKLEDİM -->
+                <div style="background: linear-gradient(135deg, #ffe6ec 0%, #ffedf2 100%); padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center; border: 2px dashed #ff758c;">
+                    <h3 style="color: #ff758c; margin-top: 0;">🤖 Kedicik Yapay Zeka Asistanı</h3>
+                    <p style="font-size: 13px; color: #555; margin-bottom: 15px;">Sana her konuda yardımcı olmak için hazır bekliyor!</p>
+                    <button onclick="toggleCatChat()" style="background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 5px 15px rgba(255,117,140,0.4);">🐱 Asistan ile Sohbeti Başlat</button>
+                </div>
             </div>
 
-            <!-- VLOGLAR -->
             <div id="vloglar" class="sayfa-icerik">
                 <h1>Örnek Vlog Arşivi 🎥</h1>
-                <p>Markaların ve iş ortaklarının içerik kalitemizi görebilmesi için örnek vlog başlıklarımız:</p>
-                
+                <p>İçerik kalitemizi görebilmeniz için örnek vlog başlıklarımız:</p>
                 <div class="vlog-listesi">
-                    <div class="vlog-item"><span>1. Günlük Ev Rutini ve Kahve Keyfi #1</span><a href="https://www.youtube.com/results?search_query=Gunluk+Ev+Rutini+ve+Kahve+Keyfi" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>2. Kayseri Kapalı Çarşı Alışveriş Vlogu #2</span><a href="https://www.youtube.com/results?search_query=Kayseri+Kapali+Carsi+Alisveris+Vlogu" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>3. Hafta Sonu Doğum Günü Kutlaması #3</span><a href="https://www.youtube.com/results?search_query=Hafta+Sonu+Dogum+Gunu+Kutlamasi" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>4. Pratik ve Hızlı Akşam Yemeği Menüsü #4</span><a href="https://www.youtube.com/results?search_query=Pratik+ve+Hizli+Aksam+Yemegi+Menusu" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>5. Ev Dekorasyonu ve Temizlik Alışverişi #5</span><a href="https://www.youtube.com/results?search_query=Ev+Dekorasyonu+ve+Temizlik+Alisverisi" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>6. Kayseri Mutfağı: Geleneksel Tarifler #6</span><a href="https://www.youtube.com/results?search_query=Kayseri+Mutfagi+Geleneksel+Tarifler" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>7. Kahve Köşesi Düzenleme ve Yenileme #7</span><a href="https://www.youtube.com/results?search_query=Kahve+Kosesi+Duzenleme+ve+Yenileme" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>8. Bahar Temizliği ve Kombin Önerileri #8</span><a href="https://www.youtube.com/results?search_query=Bahar+Temizligi+ve+Kombin+Onerileri" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>9. Şehir Turu ve Doğa Yürüyüşü Anıları #9</span><a href="https://www.youtube.com/results?search_query=Sehir+Turu+ve+Doga+Yuruyusu+Anilari" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>10. Hafta Sonu Alışveriş ve Ürün Tanıtımı #10</span><a href="https://www.youtube.com/results?search_query=Hafta+Sonu+Alisveris+ve+Urun+Tanitimi" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>11. Cilt Bakım Rutinlerim ve Favoriler #11</span><a href="https://www.youtube.com/results?search_query=Cilt+Bakim+Rutinlerim+ve+Favoriler" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>12. Misafir Ağırlama ve Sunum Hazırlığı #12</span><a href="https://www.youtube.com/results?search_query=Misafir+Agirlama+ve+Sunum+Hazirligi" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>13. Uzun Yolculuk ve Tatil Anıları #13</span><a href="https://www.youtube.com/results?search_query=Uzun+Yolculuk+ve+Tatil+Anilari" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>14. Balkon Düzenleme ve Çiçek Dikimi #14</span><a href="https://www.youtube.com/results?search_query=Balkan+Duzenleme+ve+Cicek+Dikimi" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>15. Dolap Düzenleme ve Kombin Günlüğü #15</span><a href="https://www.youtube.com/results?search_query=Dolap+Duzenleme+ve+Cicek+Gunlugu" target="_blank" class="vlog-badge">İzle</a></div>
+                    <div class="vlog-item"><span>1. Günlük Ev Rutini ve Kahve Keyfi #1</span><a href="https://www.youtube.com/results?search_query=Gunluk+Ev+Rutini" target="_blank" class="vlog-badge">İzle</a></div>
+                    <div class="vlog-item"><span>2. Kayseri Kapalı Çarşı Alışveriş Vlogu #2</span><a href="https://www.youtube.com/results?search_query=Kayseri+Carsi" target="_blank" class="vlog-badge">İzle</a></div>
+                    <div class="vlog-item"><span>3. Hafta Sonu Doğum Günü Kutlaması #3</span><a href="https://www.youtube.com/results?search_query=Dogum+Gunu" target="_blank" class="vlog-badge">İzle</a></div>
                 </div>
             </div>
 
-            <!-- GÜNLÜK RUTİNLER -->
             <div id="rutinler" class="sayfa-icerik">
                 <h1>Günlük Rutinler ✨</h1>
-                <p>Her gün yenilenen rengarenk hayatımızdan kesitler, sabah rutinleri ve motivasyon dolu anlar burada yer alıyor.</p>
+                <p>Her gün yenilenen rengarenk hayatımızdan kesitler burada yer alıyor.</p>
             </div>
 
-            <!-- KEDİCİK ASİSTAN SAYFASI -->
             <div id="asistan" class="sayfa-icerik">
                 <h1>Kedicik Asistan 🐱</h1>
-                <p>Miyav! Sağ alttaki sevimli kedi ikonuna tıklayarak her an sohbet penceresini açabilirsin.</p>
-                <div style="background: #ffe6ec; padding: 20px; border-radius: 15px; margin-top: 15px; color: #ff758c; font-weight: bold; text-align: center;">
-                    Sağ alttaki kedi butonuna basarak sorularını sorabilirsin! 🐾
-                </div>
+                <p>Aşağıdaki butona basarak yapay zeka asistanımızla anında sohbet edebilirsin!</p>
+                <button onclick="toggleCatChat()" style="background: #ff758c; color: white; border: none; padding: 12px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; margin-top: 10px;">Sohbeti Aç 🐾</button>
             </div>
 
         </div>
     </div>
 
-    <!-- SEVİMLİ KEDİ ASİSTAN WIDGET (SİTENİN HER YERİNDE SAĞ ALTTA) -->
+    <!-- SAĞ ALT KÖŞEDEKİ SABİT KEDİ -->
     <div class="floating-cat-container">
-        <div id="cat-bubble" class="cat-speech-bubble" onclick="toggleCatChat()">
-            Miyav! Yardıma mı ihtiyacın var? 🐾
-        </div>
-        
-        <div class="cat-button" onclick="toggleCatChat()" title="Rengarenk Kedi Asistan">
+        <div class="cat-button" onclick="toggleCatChat()" title="Yapay Zeka Asistan">
             🐱
         </div>
 
@@ -419,10 +375,10 @@
                 <button class="cat-chat-close" onclick="toggleCatChat()">×</button>
             </div>
             <div id="cat-chat-messages" class="cat-chat-messages">
-                <div class="cat-msg-bot">Miyav! Rengarenk Dünyamıza hoş geldin! Sana vloglar, reklam teklifleri veya iletişim konusunda yardımcı olabilirim. 🐾</div>
+                <div class="cat-msg-bot">Miyav! Rengarenk Dünyamıza hoş geldin! Sana nasıl yardımcı olabilirim? 🐾</div>
             </div>
             <div class="cat-chat-input-area">
-                <input type="text" id="cat-user-input" placeholder="Kediciğe bir şey sor..." onkeypress="handleCatKeyPress(event)">
+                <input type="text" id="cat-user-input" placeholder="Bir şey sor..." onkeypress="handleCatKeyPress(event)">
                 <button onclick="sendCatMessage()">Gönder</button>
             </div>
         </div>
@@ -432,7 +388,6 @@
         function sekmeDegistir(sayfaId, element) {
             const içerikler = document.querySelectorAll('.sayfa-icerik');
             içerikler.forEach(ic => ic.classList.remove('aktif-icerik'));
-
             document.getElementById(sayfaId).classList.add('aktif-icerik');
 
             const butonlar = document.querySelectorAll('.menu-sekmeler .sekme-btn');
@@ -471,11 +426,9 @@
                 
                 const textLower = messageText.toLowerCase();
                 if(textLower.includes('reklam') || textLower.includes('iş birliği')) {
-                    botMsg.textContent = 'Miyav! Reklam ve iş birliği için sol menüdeki WhatsApp butonuna tıklayarak doğrudan ulaşabilirsin! 🤝';
+                    botMsg.textContent = 'Miyav! Reklam ve iş birliği için sol menüdeki WhatsApp butonuna tıklayabilirsin! 🤝';
                 } else if(textLower.includes('vlog') || textLower.includes('video')) {
-                    botMsg.textContent = 'Harika videolarımız sol menüdeki "Vloglar" sekmesinde seni bekliyor miyav! 🎥';
-                } else if(textLower.includes('iletişim') || textLower.includes('ulaş')) {
-                    botMsg.textContent = 'Bize 0555 060 07 69 numaralı WhatsApp hattımızdan her zaman yazabilirsin! 🌸';
+                    botMsg.textContent = 'Videolarımız sol menüdeki "Vloglar" sekmesinde seni bekliyor miyav! 🎥';
                 } else {
                     botMsg.textContent = 'Miyav! Sitemizde keyifli gezintiler dilerim bacıcığım, başka ne öğrenmek istersin? ✨';
                 }
@@ -491,6 +444,5 @@
             }
         }
     </script>
-
 </body>
 </html>
