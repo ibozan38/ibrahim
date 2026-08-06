@@ -3,254 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bacılar Çetesi | Rengarenk Dünyam</title>
+    <title>Rengarenk Dünyam | Instagram Profili</title>
     <style>
         body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
-        }
-
-        .sidebar {
-            width: 280px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 5px 0 25px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            padding: 25px 20px;
             box-sizing: border-box;
         }
 
-        .profil-bolum {
+        /* Instagram Profil Kartı Tasarımı */
+        .insta-container {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            padding: 30px 20px;
+            box-sizing: border-box;
             text-align: center;
-            margin-bottom: 25px;
+            position: relative;
         }
 
-        .profil-ikon-kutu {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+        /* Profil Fotoğrafı / Çemberi */
+        .insta-avatar {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto 12px auto;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
-            font-size: 38px;
+            margin: 0 auto 15px auto;
+            padding: 3px; /* Instagram hikaye çemberi efekti */
+            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.3);
         }
 
-        .sidebar h2 {
-            color: #333;
-            font-size: 18px;
-            margin: 5px 0;
-        }
-
-        .sidebar p {
-            color: #666;
-            font-size: 12px;
-            margin: 0;
-        }
-
-        .menu-sekmeler {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .sekme-btn {
-            display: block;
-            background: white;
-            color: #ff758c;
-            text-decoration: none;
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-            transition: all 0.2s ease;
-            border-left: 4px solid #ff758c;
-            cursor: pointer;
-            text-align: left;
-            border-top: none;
-            border-right: none;
-            border-bottom: none;
+        .insta-avatar-inner {
             width: 100%;
-        }
-
-        .sekme-btn:hover, .sekme-btn.aktif {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .main-content {
-            flex: 1;
-            padding: 30px;
-            box-sizing: border-box;
+            height: 100%;
+            background: white;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: 40px;
         }
 
-        .content-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
+        /* Kullanıcı Adı ve Bio */
+        .insta-username {
+            font-size: 18px;
+            font-weight: 700;
+            color: #262626;
+            margin: 0 0 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .verified-badge {
+            color: #0095f6;
+            font-size: 15px;
+        }
+
+        .insta-handle {
+            font-size: 13px;
+            color: #8e8e8e;
+            margin-bottom: 12px;
+        }
+
+        .insta-bio {
+            font-size: 13px;
+            color: #262626;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        /* Takipçi İstatistikleri Simülasyonu */
+        .insta-stats {
+            display: flex;
+            justify-content: space-around;
+            background: #fafafa;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #efefef;
+        }
+
+        .stat-item {
+            font-size: 12px;
+            color: #8e8e8e;
+        }
+
+        .stat-item span {
+            display: block;
+            font-weight: 700;
+            font-size: 14px;
+            color: #262626;
+        }
+
+        /* Linkler ve Butonlar (Linktree / IG Bio Tarzı) */
+        .insta-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .insta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: white;
+            color: #262626;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #dbdbdb;
+            transition: all 0.2s ease;
+            cursor: pointer;
             width: 100%;
-            max-width: 700px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            max-height: 85vh;
+            box-sizing: border-box;
+        }
+
+        .insta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            border-color: #cc2366;
+            color: #cc2366;
+        }
+
+        .insta-btn.primary {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            border: none;
+        }
+
+        .insta-btn.primary:hover {
+            opacity: 0.95;
+            color: white;
+        }
+
+        .insta-btn.ai-cat {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            border: none;
+        }
+
+        /* İçerik Alanı / Modal Pencereler */
+        .section-view {
+            display: none;
+            margin-top: 15px;
+            text-align: left;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #efefef;
+            max-height: 250px;
             overflow-y: auto;
         }
 
-        .content-card h1 {
-            color: #333;
-            margin-top: 0;
-        }
-
-        .content-card p {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .sayfa-icerik {
-            display: none;
-        }
-
-        .sayfa-icerik.aktif-icerik {
+        .section-view.active {
             display: block;
         }
 
-        .vlog-listesi {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
+        .section-view h3 {
+            font-size: 15px;
+            color: #262626;
+            margin-top: 0;
+            margin-bottom: 10px;
         }
 
-        .vlog-item {
+        .vlog-row {
+            font-size: 12px;
+            padding: 8px 10px;
             background: white;
-            padding: 12px 15px;
-            border-radius: 10px;
+            margin-bottom: 6px;
+            border-radius: 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-            font-size: 14px;
-            color: #444;
-            border-left: 3px solid #ff758c;
+            border: 1px solid #efefef;
         }
 
-        .vlog-badge {
-            background: #ffe6ec;
-            color: #ff758c;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
+        .vlog-row a {
+            color: #cc2366;
             text-decoration: none;
+            font-weight: bold;
         }
 
-        .vlog-badge:hover {
-            background: #ff758c;
-            color: white;
-        }
-
-        /* --- YAPAY ZEKA ASİSTAN WIDGET --- */
-        .floating-cat-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 99999;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .cat-button {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.4);
-            border: 3px solid white;
-            font-size: 30px;
-        }
-
+        /* --- YAPAY ZEKA KEDİCİK CHAT PENCERESİ --- */
         .cat-chat-modal {
             display: none;
             position: absolute;
-            bottom: 75px;
-            right: 0;
-            width: 300px;
-            height: 380px;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             flex-direction: column;
             overflow: hidden;
-            border: 2px solid #ffe6ec;
-            z-index: 99999;
+            border: 2px solid #ff758c;
+            z-index: 999;
+            text-align: left;
         }
 
         .cat-chat-header {
             background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
             color: white;
-            padding: 12px 15px;
+            padding: 10px 15px;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .cat-chat-close {
             background: none;
             border: none;
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
         }
 
         .cat-chat-messages {
-            flex: 1;
-            padding: 12px;
+            height: 160px;
+            padding: 10px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             background: #fff9fb;
+            font-size: 12px;
         }
 
         .cat-msg-bot {
             background: #ffe6ec;
             color: #333;
-            padding: 8px 12px;
-            border-radius: 10px 10px 10px 2px;
+            padding: 8px 10px;
+            border-radius: 8px 8px 8px 2px;
             max-width: 85%;
-            font-size: 13px;
-            line-height: 1.4;
-            align-self: flex-start;
         }
 
         .cat-msg-user {
             background: #ff758c;
             color: white;
-            padding: 8px 12px;
-            border-radius: 10px 10px 2px 10px;
+            padding: 8px 10px;
+            border-radius: 8px 8px 2px 8px;
             max-width: 85%;
-            font-size: 13px;
-            line-height: 1.4;
             align-self: flex-end;
         }
 
@@ -259,140 +272,129 @@
             padding: 8px;
             background: white;
             border-top: 1px solid #eee;
-            gap: 6px;
+            gap: 5px;
         }
 
         .cat-chat-input-area input {
             flex: 1;
-            padding: 8px 10px;
+            padding: 6px 10px;
             border: 1px solid #ddd;
-            border-radius: 15px;
+            border-radius: 10px;
             outline: none;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .cat-chat-input-area button {
             background: #ff758c;
             color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 15px;
+            padding: 6px 12px;
+            border-radius: 10px;
             font-weight: bold;
             cursor: pointer;
             font-size: 12px;
         }
 
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-            }
-            .main-content {
-                padding: 15px;
-            }
-            .content-card {
-                max-height: none;
-            }
-            .cat-chat-modal {
-                width: 270px;
-                right: 0;
-            }
+        .footer-note {
+            font-size: 11px;
+            color: #999;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <div class="profil-bolum">
-            <div class="profil-ikon-kutu">🌸</div>
-            <h2>Bacılar Çetesi</h2>
-            <p>Rengarenk Dünyam</p>
-        </div>
+    <div class="insta-container">
         
-        <div class="menu-sekmeler">
-            <button class="sekme-btn aktif" onclick="sekmeDegistir('anasayfa', this)">🏠 Ana Sayfa</button>
-            <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="sekme-btn" style="display:block;">📸 Instagram</a>
-            <a href="https://wa.me/905550600769?text=Merhaba,%20reklam%20ve%20iş%20birliği%20için%20ulaşıyorum." target="_blank" class="sekme-btn" style="display:block;">🤝 Reklam ve İş Birliği</a>
-            <button class="sekme-btn" onclick="sekmeDegistir('vloglar', this)">🎥 Vloglar (Örnekler)</button>
-            <button class="sekme-btn" onclick="sekmeDegistir('rutinler', this)">✨ Günlük Rutinler</button>
-            <button class="sekme-btn" onclick="sekmeDegistir('asistan', this)" style="background: #ffe6ec; color: #ff758c; font-weight: bold;">🐱 Kedicik Asistan</button>
-            <a href="mailto:iletisim@ornek.com" class="sekme-btn" style="display:block;">✉️ İletişim</a>
+        <!-- Profil Fotoğrafı -->
+        <div class="insta-avatar">
+            <div class="insta-avatar-inner">🌸</div>
         </div>
-    </div>
 
-    <div class="main-content">
-        <div class="content-card">
+        <!-- Kullanıcı Bilgileri -->
+        <h1 class="insta-username">
+            Rengarenk Dünyam <span class="verified-badge">✔</span>
+        </h1>
+        <div class="insta-handle">@bacilar_cetesi</div>
+        
+        <div class="insta-bio">
+            Günlük ev rutinleri, yaşam kesitleri ve rengarenk vloglar ✨<br>İyi ki varsınız bacıklarım 💕
+        </div>
+
+        <!-- İstatistik Kutusu -->
+        <div class="insta-stats">
+            <div class="stat-item"><span>15+</span>Vlog Arşivi</div>
+            <div class="stat-item"><span>Aktif</span>Günlük Paylaşım</div>
+            <div class="stat-item"><span>100%</span>Sevgi dolu</div>
+        </div>
+
+        <!-- Instagram Link Ağacı Butonları -->
+        <div class="insta-links">
+            <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="insta-btn primary">
+                📸 Instagram'da Takip Et
+            </a>
             
-            <!-- ANA SAYFA (Yapay Zeka Butonu Ortaya Eklendi) -->
-            <div id="anasayfa" class="sayfa-icerik aktif-icerik">
-                <h1>Hoş Geldiniz! 🌈</h1>
-                <p>Rengarenk dünyamıza, günlük vloglarımıza ve iş birliği tekliflerinize buradan ulaşabilirsiniz.</p>
-                
-                <!-- BURAYA DİREKT TIKLANABİLİR BÜYÜK YAPAY ZEKA ASİSTAN KUTUSU EKLEDİM -->
-                <div style="background: linear-gradient(135deg, #ffe6ec 0%, #ffedf2 100%); padding: 20px; border-radius: 15px; margin: 20px 0; text-align: center; border: 2px dashed #ff758c;">
-                    <h3 style="color: #ff758c; margin-top: 0;">🤖 Kedicik Yapay Zeka Asistanı</h3>
-                    <p style="font-size: 13px; color: #555; margin-bottom: 15px;">Sana her konuda yardımcı olmak için hazır bekliyor!</p>
-                    <button onclick="toggleCatChat()" style="background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; font-size: 14px; cursor: pointer; box-shadow: 0 5px 15px rgba(255,117,140,0.4);">🐱 Asistan ile Sohbeti Başlat</button>
-                </div>
-            </div>
+            <a href="https://wa.me/905550600769?text=Merhaba,%20reklam%20ve%20iş%20birliği%20için%20ulaşıyorum." target="_blank" class="insta-btn">
+                🤝 Reklam ve İş Birliği (WhatsApp)
+            </a>
 
-            <div id="vloglar" class="sayfa-icerik">
-                <h1>Örnek Vlog Arşivi 🎥</h1>
-                <p>İçerik kalitemizi görebilmeniz için örnek vlog başlıklarımız:</p>
-                <div class="vlog-listesi">
-                    <div class="vlog-item"><span>1. Günlük Ev Rutini ve Kahve Keyfi #1</span><a href="https://www.youtube.com/results?search_query=Gunluk+Ev+Rutini" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>2. Kayseri Kapalı Çarşı Alışveriş Vlogu #2</span><a href="https://www.youtube.com/results?search_query=Kayseri+Carsi" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>3. Hafta Sonu Doğum Günü Kutlaması #3</span><a href="https://www.youtube.com/results?search_query=Dogum+Gunu" target="_blank" class="vlog-badge">İzle</a></div>
-                </div>
-            </div>
+            <button class="insta-btn" onclick="toggleSection('vlogBolumu')">
+                🎥 Örnek Vlog Arşivi
+            </button>
 
-            <div id="rutinler" class="sayfa-icerik">
-                <h1>Günlük Rutinler ✨</h1>
-                <p>Her gün yenilenen rengarenk hayatımızdan kesitler burada yer alıyor.</p>
-            </div>
+            <button class="insta-btn" onclick="toggleSection('rutinBolumu')">
+                ✨ Günlük Rutinler & Kesitler
+            </button>
 
-            <div id="asistan" class="sayfa-icerik">
-                <h1>Kedicik Asistan 🐱</h1>
-                <p>Aşağıdaki butona basarak yapay zeka asistanımızla anında sohbet edebilirsin!</p>
-                <button onclick="toggleCatChat()" style="background: #ff758c; color: white; border: none; padding: 12px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; margin-top: 10px;">Sohbeti Aç 🐾</button>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- SAĞ ALT KÖŞEDEKİ SABİT KEDİ -->
-    <div class="floating-cat-container">
-        <div class="cat-button" onclick="toggleCatChat()" title="Yapay Zeka Asistan">
-            🐱
+            <button class="insta-btn ai-cat" onclick="toggleCatChat()">
+                🐱 Kedicik Yapay Zeka Asistanı
+            </button>
         </div>
 
+        <!-- Vloglar İçerik Alanı -->
+        <div id="vlogBolumu" class="section-view">
+            <h3>Örnek Vlog Başlıkları 🎥</h3>
+            <div class="vlog-row"><span>1. Günlük Ev Rutini ve Kahve Keyfi</span><a href="https://www.youtube.com/results?search_query=Gunluk+Ev+Rutini" target="_blank">İzle</a></div>
+            <div class="vlog-row"><span>2. Kayseri Kapalı Çarşı Alışverişi</span><a href="https://www.youtube.com/results?search_query=Kayseri+Carsi" target="_blank">İzle</a></div>
+            <div class="vlog-row"><span>3. Hafta Sonu Doğum Günü Kutlaması</span><a href="https://www.youtube.com/results?search_query=Dogum+Gunu" target="_blank">İzle</a></div>
+            <div class="vlog-row"><span>4. Pratik Akşam Yemeği Menüsü</span><a href="https://www.youtube.com/results?search_query=Aksam+Yemegi" target="_blank">İzle</a></div>
+        </div>
+
+        <!-- Rutinler İçerik Alanı -->
+        <div id="rutinBolumu" class="section-view">
+            <h3>Günlük Rutinler ✨</h3>
+            <p style="font-size: 12px; color: #555; text-align: center; margin: 5px 0;">Sabah kahvesi eşliğinde ev düzeni, temizlik ipuçları ve motivasyon dolu rengarenk anlar burada sizlerle!</p>
+        </div>
+
+        <!-- Kedicik Asistan Sohbet Kutusu (Sayfa İçi) -->
         <div id="cat-chat-modal" class="cat-chat-modal">
             <div class="cat-chat-header">
                 <span>🌸 Rengarenk Kedi Asistan</span>
                 <button class="cat-chat-close" onclick="toggleCatChat()">×</button>
             </div>
             <div id="cat-chat-messages" class="cat-chat-messages">
-                <div class="cat-msg-bot">Miyav! Rengarenk Dünyamıza hoş geldin! Sana nasıl yardımcı olabilirim? 🐾</div>
+                <div class="cat-msg-bot">Miyav! Rengarenk Dünyam Instagram sayfasına hoş geldin! Sana nasıl yardımcı olabilirim? 🐾</div>
             </div>
             <div class="cat-chat-input-area">
                 <input type="text" id="cat-user-input" placeholder="Bir şey sor..." onkeypress="handleCatKeyPress(event)">
                 <button onclick="sendCatMessage()">Gönder</button>
             </div>
         </div>
+
+        <div class="footer-note">
+            Rengarenk Dünyam © 2026
+        </div>
+
     </div>
 
     <script>
-        function sekmeDegistir(sayfaId, element) {
-            const içerikler = document.querySelectorAll('.sayfa-icerik');
-            içerikler.forEach(ic => ic.classList.remove('aktif-icerik'));
-            document.getElementById(sayfaId).classList.add('aktif-icerik');
-
-            const butonlar = document.querySelectorAll('.menu-sekmeler .sekme-btn');
-            butonlar.forEach(btn => btn.classList.remove('aktif'));
-            element.classList.add('aktif');
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('.section-view');
+            sections.forEach(sec => {
+                if(sec.id !== sectionId) sec.classList.remove('active');
+            });
+            const target = document.getElementById(sectionId);
+            target.classList.toggle('active');
         }
 
         function toggleCatChat() {
@@ -426,9 +428,9 @@
                 
                 const textLower = messageText.toLowerCase();
                 if(textLower.includes('reklam') || textLower.includes('iş birliği')) {
-                    botMsg.textContent = 'Miyav! Reklam ve iş birliği için sol menüdeki WhatsApp butonuna tıklayabilirsin! 🤝';
+                    botMsg.textContent = 'Miyav! Reklam ve iş birliği için WhatsApp butonuna tıklayarak doğrudan yazabilirsin! 🤝';
                 } else if(textLower.includes('vlog') || textLower.includes('video')) {
-                    botMsg.textContent = 'Videolarımız sol menüdeki "Vloglar" sekmesinde seni bekliyor miyav! 🎥';
+                    botMsg.textContent = 'Vloglarımızı görmek için "Örnek Vlog Arşivi" butonuna tıklayabilirsin miyav! 🎥';
                 } else {
                     botMsg.textContent = 'Miyav! Sitemizde keyifli gezintiler dilerim bacıcığım, başka ne öğrenmek istersin? ✨';
                 }
