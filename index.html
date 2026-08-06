@@ -146,7 +146,7 @@
             color: #555;
             margin-bottom: 20px;
         }
-        /* Video Vitrini Kartları */
+        /* Video Oynatıcı Vitrini */
         .video-showcase-card {
             background: #fff;
             border-radius: 12px;
@@ -159,13 +159,15 @@
             position: relative;
             width: 100%;
             background: #000;
-            aspect-ratio: 9/16;
-            max-height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .video-container video {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-height: 450px;
+            object-fit: contain;
+            display: block;
         }
         .video-info {
             padding: 15px;
@@ -264,14 +266,14 @@ Ortaya karışık vloglar Herşeyde biraz ben biraz siz bacıklarım ❤️ Kays
         <!-- Reklam & Video Örnekleri Sekmesi -->
         <div id="reklam" class="section-block">
             <div class="section-title">🎥 Profesyonel Tanıtım & Seslendirme Vitrini</div>
-            <p class="section-desc">Markanızı kitlemizle buluştururken kullandığımız "Vay be!" dedirten video konseptleri ve hazır seslendirme örneklerimiz aşağıdadır. Videoyu oynatıp seslendirmeyi dinleyebilirsiniz!</p>
+            <p class="section-desc">Markanızı kitlemizle buluştururken kullandığımız video oynatıcılar ve hazır seslendirme örneklerimiz aşağıdadır. Oynat tuşuna basarak hemen izleyebilirsiniz!</p>
 
             <!-- Video Örnek 1 -->
             <div class="video-showcase-card">
                 <div class="video-container">
-                    <video controls muted playsinline poster="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80">
+                    <video controls playsinline preload="metadata">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-holding-a-shopping-bag-while-walking-41639-large.mp4" type="video/mp4">
-                        Tarayıcınız video etiketini desteklemiyor.
+                        Tarayıcınız video oynatmayı desteklemiyor.
                     </video>
                 </div>
                 <div class="video-info">
@@ -287,9 +289,9 @@ Ortaya karışık vloglar Herşeyde biraz ben biraz siz bacıklarım ❤️ Kays
             <!-- Video Örnek 2 -->
             <div class="video-showcase-card">
                 <div class="video-container">
-                    <video controls muted playsinline poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80">
+                    <video controls playsinline preload="metadata">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-drinking-coffee-in-bed-4189-large.mp4" type="video/mp4">
-                        Tarayıcınız video etiketini desteklemiyor.
+                        Tarayıcınız video oynatmayı desteklemiyor.
                     </video>
                 </div>
                 <div class="video-info">
