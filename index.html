@@ -221,6 +221,48 @@
             font-weight: 600;
             font-size: 14px;
         }
+        
+        /* Kayseri Rehberi Kart Stilleri */
+        .kayseri-category-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin: 25px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-bottom: 2px solid #d81b60;
+            padding-bottom: 5px;
+        }
+        .kayseri-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #eaeaea;
+            margin-bottom: 20px;
+        }
+        .kayseri-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .kayseri-content {
+            padding: 15px;
+        }
+        .kayseri-content h4 {
+            font-size: 16px;
+            color: #d81b60;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        .kayseri-content p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.6;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -260,7 +302,7 @@ Ortaya karışık vloglar Herşeyde biraz ben biraz siz bacıklarım ❤️ Kays
         <nav>
             <a href="#reklam" class="active">🎥 Reklam & Video Örnekleri</a>
             <a href="#vloglar">🎬 Vloglar</a>
-            <a href="#kayseri">📍 Kayseri</a>
+            <a href="#kayseri">📍 Kayseri Rehberi</a>
             <a href="#hakkimda">✨ Hakkımda</a>
         </nav>
 
@@ -318,10 +360,68 @@ Ortaya karışık vloglar Herşeyde biraz ben biraz siz bacıklarım ❤️ Kays
             <p class="section-desc">Günün koşturmacası ve keyifli anlar.</p>
         </div>
 
-        <!-- Kayseri Sekmesi -->
+        <!-- Kayseri Sekmesi (Yepyeni Detaylı İçerik) -->
         <div id="kayseri" class="section-block">
-            <div class="section-title">📍 Kayseri Notları</div>
-            <p class="section-desc">Memleketten manzaralar ve yaşamın içinden detaylar.</p>
+            <div class="section-title">📍 Kayseri Keşif Rehberi: Tarih, Doğa ve Lezzet</div>
+            <p class="section-desc">Memleketimiz Kayseri'nin kadim tarihini, nefis lezzetlerini, herkesin görmesi gereken turistik duraklarını ve en popüler mekanlarını senin için kategorize ettik!</p>
+
+            <!-- KATEGORİ 1: TARİHİ ESERLER VE MÜZELER -->
+            <div class="kayseri-category-title">🏛️ Tarihi Eserler & Müzeler</div>
+
+            <div class="kayseri-card">
+                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80" alt="Kayseri Kalesi" class="kayseri-img">
+                <div class="kayseri-content">
+                    <h4>Kayseri Kalesi ve Sur İçi</h4>
+                    <p>Şehrin kalbinde yer alan Roma dönemine ait devasa kale, Selçuklu ve Osmanlı dokunuşlarıyla günümüze kadar ayakta kalmıştır. İçerisinde yer alan Arkeoloji Müzesi ve Kültür Sanat Sokağı kesinlikle görülmeye değerdir.</p>
+                </div>
+            </div>
+
+            <div class="kayseri-card">
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" alt="Gevher Nesibe Medresesi" class="kayseri-img">
+                <div class="kayseri-content">
+                    <h4>Gevher Nesibe Şifaiye Medresesi (Tıp Tarihi Müzesi)</h4>
+                    <p>Dünyanın ilk tıp fakültesi ve hastanesi olarak bilinen bu şaheser, Selçuklu mimarisinin en zarif örneklerindendir. İçindeki müzeyi gezerken tarihte tıp biliminin nasıl şekillendiğine tanıklık edeceksiniz.</p>
+                </div>
+            </div>
+
+            <!-- KATEGORİ 2: DOĞA VE GEZİLECEK YERLER -->
+            <div class="kayseri-category-title">🏔️ Doğa & Gezilecek Yerler</div>
+
+            <div class="kayseri-card">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Erciyes Dağı" class="kayseri-img">
+                <div class="kayseri-content">
+                    <h4>Erciyes Kayak Merkezi</h4>
+                    <p>İç Anadolu'nun zirvesi, 3.916 metre yüksekliğindeki ihtişamlı Erciyes Dağı; kış turizminin başkentidir. Dünyaca ünlü pistleri, modern telesiyejleri ve yaz aylarındaki kamp/doğa yürüyüşü imkanlarıyla dört mevsim cazibe merkezidir.</p>
+                </div>
+            </div>
+
+            <div class="kayseri-card">
+                <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=80" alt="Kapuzbaşı Şelaleleri" class="kayseri-img">
+                <div class="kayseri-content">
+                    <h4>Kapuzbaşı Şelaleleri (Yahyalı)</h4>
+                    <p>Aladağlar Milli Parkı sınırları içerisinde yer alan bu şelaleler, dünyanın en yüksekten dökülen ve devasa su debisine sahip saklı cennetlerinden biridir. Muazzam doğası ve serin havasıyla ruhunuzu dinlendirir.</p>
+                </div>
+            </div>
+
+            <!-- KATEGORİ 3: MEŞHUR KAFELER, SOSYAL YAŞAM VE LEZZETLER -->
+            <div class="kayseri-category-title">☕ Popüler Mekanlar, Kafeler & Lezzetler</div>
+
+            <div class="kayseri-card">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Talas Kafe Sokağı" class="kayseri-img">
+                <div class="kayseri-content">
+                    <h4>Talas Amerikan Kültür Sokağı & Tarihi Evler</h4>
+                    <p>Kayseri'nin sosyal yaşamının ve genç nüfusun kalbinin attığı Talas bölgesi; restore edilmiş tarihi taş konakları, nezih kafeleri, butik dükkanları ve sıcak atmosferiyle kahve içip soluklanmak için en ideal yerdir.</p>
+                </div>
+            </div>
+
+            <div class="kayseri-card">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Kayseri Mutfağı" class="kayseri-img">
+                <div class="kayseri-content">
+                    <h4>Kayseri Mutfak Kültürü (Mantı & Pastırma)</h4>
+                    <p>Kaşığına 40 tane mantı sığdırılan efsanevi Kayseri mantısını dağ domatesi sosu ve sarımsaklı yoğurtla tatmadan; dünyaca ünlü Kayseri pastırmasını ve sucuğunu yerinde denemeden Kayseri'den dönmeyin!</p>
+                </div>
+            </div>
+
         </div>
 
         <!-- Hakkımda Sekmesi -->
@@ -335,4 +435,5 @@ Ortaya karışık vloglar Herşeyde biraz ben biraz siz bacıklarım ❤️ Kays
         </footer>
     </div>
 </body>
-</html>
+                                            </html>
+    
