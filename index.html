@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rengarenk Dünyam | Yaşam ve Günlük Rutinler</title>
+    <title>Rengarenk Dünyam | Instagram Profili</title>
     <style>
         * {
             box-sizing: border-box;
@@ -11,138 +11,171 @@
             padding: 0;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fcf4f7;
-            color: #333;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+            padding-bottom: 40px;
         }
-        header {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .profile-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
         }
-        header h1 {
-            font-size: 26px;
-            margin-bottom: 5px;
-        }
-        header p {
-            font-size: 15px;
-            opacity: 0.9;
-        }
-        nav {
+        .profile-header {
+            padding: 25px 20px;
             display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .avatar-ring {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            display: flex;
+            align-items: center;
             justify-content: center;
-            background: #ffffff;
-            padding: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            overflow-x: auto;
+            padding: 3px;
+            flex-shrink: 0;
         }
-        nav a {
-            color: #d81b60;
-            text-decoration: none;
-            margin: 0 12px;
-            font-weight: bold;
+        .avatar {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+        .profile-info h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #262626;
+            margin-bottom: 4px;
+        }
+        .handle {
             font-size: 14px;
-            white-space: nowrap;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ff758c;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        h2 {
-            color: #d81b60;
-            margin-bottom: 12px;
-            font-size: 20px;
-            border-bottom: 2px solid #ffe6ed;
-            padding-bottom: 8px;
-        }
-        p {
-            color: #555;
-            font-size: 15px;
+            color: #8e8e8e;
             margin-bottom: 10px;
         }
-        .social-links {
-            margin-top: 15px;
+        .stats {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
         }
-        .social-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #d81b60;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
+        .stats span strong {
+            color: #262626;
+        }
+        .bio-section {
+            padding: 15px 20px;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .bio-section p {
             font-size: 14px;
+            line-height: 1.5;
+            color: #262626;
+            margin-bottom: 12px;
+        }
+        .insta-btn {
+            display: block;
+            width: 100%;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(216, 27, 96, 0.3);
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(221, 42, 123, 0.2);
+        }
+        .grid-section {
+            padding: 10px;
+        }
+        .grid-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8e8e8e;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+        }
+        .post-card {
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        .post-card span {
+            background: rgba(0,0,0,0.4);
+            padding: 5px 8px;
+            border-radius: 4px;
+            width: 100%;
         }
         footer {
             text-align: center;
             padding: 20px;
-            color: #888;
-            font-size: 13px;
+            font-size: 12px;
+            color: #8e8e8e;
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>🎨 Rengarenk Dünyam</h1>
-        <p>Günlük rutinler, yaşam tarzı ve keyifli paylaşımlar</p>
-    </header>
-
-    <nav>
-        <a href="#anasayfa">Ana Sayfa</a>
-        <a href="#rutinler">Günlük Rutinler</a>
-        <a href="#hakkimda">Hakkımda</a>
-        <a href="#iletisim">İletişim</a>
-    </nav>
-
-    <div class="container">
-        <div id="anasayfa" class="card">
-            <h2>Hoş Geldiniz</h2>
-            <p>Bu alan; günlük yaşamımı, ev içi düzeni ve ilham veren rutinlerimi paylaştığım özel köşemdir. Sayfamda hayatın renklerini birlikte keşfediyoruz.</p>
-        </div>
-
-        <div id="rutinler" class="card">
-            <h2>✨ Günlük Rutinler & Yaşam</h2>
-            <p>Güne nasıl başlıyorum? Ev içi düzen, keyifli anlar ve günün koşturmacası içinde hayatı güzelleştiren pratik ipuçları ve günlük vlog paylaşımlarım burada yer alıyor.</p>
-        </div>
-
-        <div id="hakkimda" class="card">
-            <h2>🌸 Hakkımda</h2>
-            <p>Rengarenk Dünyam sayfasına hoş geldiniz! Hayatın küçük detaylarındaki mutlulukları, renkli anları ve günlük rutinleri kaydetmeyi ve paylaşmayı çok seviyorum.</p>
-        </div>
-
-        <div id="iletisim" class="card">
-            <h2>📞 Sosyal Medya</h2>
-            <p>Günlük paylaşımlarımı ve hikayelerimi takip etmek için sayfamı ziyaret edebilirsiniz.</p>
-            <div class="social-links">
-                <a href="https://instagram.com" target="_blank" class="social-btn">Instagram'da Takip Et</a>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="avatar-ring">
+                <div class="avatar">🎨</div>
+            </div>
+            <div class="profile-info">
+                <h1>Rengarenk Dünyam</h1>
+                <div class="handle">@rengarenk_dunyam</div>
+                <div class="stats">
+                    <span><strong>420</strong> Gönderi</span>
+                    <span><strong>15.2K</strong> Takipçi</span>
+                </div>
             </div>
         </div>
+
+        <div class="bio-section">
+            <p>✨ Günlük rutinler, yaşam tarzı ve ev içi keyifli anlar 🌸<br>Hayatın renklerini birlikte keşfediyoruz! ☕️🏡</p>
+            <a href="https://instagram.com" target="_blank" class="insta-btn">Instagram'da Takip Et & Göz At</a>
+        </div>
+
+        <div class="grid-section">
+            <div class="grid-title">En Son Paylaşımlar & Vloglar</div>
+            <div class="post-grid">
+                <a href="#" class="post-card"><span>Sabah Rutini ☕️</span></a>
+                <a href="#" class="post-card"><span>Ev Düzeni 🏡</span></a>
+                <a href="#" class="post-card"><span>Günün Kombini ✨</span></a>
+                <a href="#" class="post-card"><span>Tarifler 🍰</span></a>
+                <a href="#" class="post-card"><span>Alışveriş 🛍️</span></a>
+                <a href="#" class="post-card"><span>Keyif Anları 🌸</span></a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Rengarenk Dünyam</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>&copy; 2026 Rengarenk Dünyam. Tüm hakları saklıdır.</p>
-    </footer>
-
 </body>
 </html>
