@@ -3,491 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İş Birliği & Reklam Vitrini | Rengarenk Dünyam (@bacilar_cetesi)</title>
+    <title>Bacılar Çetesi | Rengarenk Dünyam</title>
     <style>
-        * {
-            box-sizing: border-box;
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fafafa;
-            color: #262626;
-            line-height: 1.5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
+            display: flex;
             min-height: 100vh;
-            box-shadow: 0 0 15px rgba(0,0,0,0.05);
         }
-        /* Profil Başlığı */
-        .profile-header {
-            padding: 25px 20px;
+
+        /* Sol Menü (Sidebar) */
+        .sidebar {
+            width: 260px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 5px 0 25px rgba(0,0,0,0.05);
             display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #ffffff;
-            border-bottom: 1px solid #dbdbdb;
+            flex-direction: column;
+            padding: 30px 20px;
+            box-sizing: border-box;
         }
-        .avatar-ring {
-            width: 85px;
-            height: 85px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3px;
-            flex-shrink: 0;
-        }
-        .avatar {
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-        }
-        .profile-info h1 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #262626;
-            margin-bottom: 2px;
-        }
-        .handle {
-            font-size: 14px;
-            color: #8e8e8e;
-            margin-bottom: 8px;
-        }
-        .stats {
-            display: flex;
-            gap: 12px;
-            font-size: 13px;
-            color: #262626;
-        }
-        /* Biyografi Alanı */
-        .bio-section {
-            padding: 15px 20px;
-            border-bottom: 1px solid #dbdbdb;
-            background: #fff;
-        }
-        .category {
-            font-size: 13px;
-            color: #8e8e8e;
-            margin-bottom: 5px;
-        }
-        .bio-text {
-            font-size: 14px;
-            color: #262626;
-            white-space: pre-line;
-            margin-bottom: 15px;
-        }
-        .insta-btn {
-            display: block;
-            width: 100%;
+
+        .profil-bolum {
             text-align: center;
-            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-            color: white;
-            padding: 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 4px 10px rgba(221, 42, 123, 0.2);
+            margin-bottom: 30px;
         }
-        /* Menü Sekmeleri */
-        nav {
-            display: flex;
-            background: #ffffff;
-            padding: 10px 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            overflow-x: auto;
-            border-bottom: 1px solid #dbdbdb;
-        }
-        nav a {
-            color: #666;
-            text-decoration: none;
-            margin-right: 15px;
-            font-weight: 600;
-            font-size: 14px;
-            white-space: nowrap;
-            padding: 6px 12px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-        nav a:hover, nav a.active {
-            background-color: #d81b60;
-            color: white;
-        }
-        /* İçerik Bölümleri */
-        .section-block {
-            padding: 25px 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .section-title {
-            font-size: 18px;
-            color: #d81b60;
+
+        .profil-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff758c;
             margin-bottom: 10px;
-            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.3);
+        }
+
+        .sidebar h2 {
+            color: #333;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .sidebar p {
+            color: #666;
+            font-size: 12px;
+            margin: 0;
+        }
+
+        /* Sol Taraftaki Alt Alta Sekmeler */
+        .menu-sekmeler {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            flex-direction: column;
+            gap: 12px;
         }
-        .section-desc {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        /* Video Vitrini */
-        .video-showcase-card {
-            background: #fff;
+
+        .sekme-btn {
+            display: block;
+            background: white;
+            color: #ff758c;
+            text-decoration: none;
+            padding: 12px 18px;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border: 1px solid #eaeaea;
-            margin-bottom: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            transition: all 0.2s ease;
+            border-left: 4px solid #ff758c;
         }
-        .video-container {
-            position: relative;
-            width: 100%;
-            background: #111;
-            aspect-ratio: 9/16;
-            max-height: 450px;
+
+        .sekme-btn:hover, .sekme-btn.aktif {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* Sağ Ana İçerik Alanı */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            box-sizing: border-box;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .video-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .video-info {
-            padding: 15px;
-        }
-        .video-info h3 {
-            font-size: 16px;
-            color: #262626;
-            margin-bottom: 6px;
-        }
-        .script-box {
-            background: #fdf2f4;
-            border-left: 4px solid #d81b60;
-            padding: 10px 12px;
-            font-size: 13px;
-            color: #444;
-            margin-top: 10px;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-        }
-        .script-box strong {
-            color: #d81b60;
-            font-style: normal;
-            display: block;
-            margin-bottom: 3px;
-        }
-        .contact-box {
-            background: #262626;
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        .contact-box h3 {
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-        .contact-box p {
-            font-size: 13px;
-            color: #bbb;
-            margin-bottom: 15px;
-        }
-        .dm-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-            color: white;
-            padding: 10px 25px;
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-        }
-        
-        /* Kayseri Rehberi Kart Stilleri */
-        .kayseri-category-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: #333;
-            margin: 30px 0 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border-bottom: 2px solid #d81b60;
-            padding-bottom: 6px;
-        }
-        .kayseri-card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border: 1px solid #eaeaea;
-            margin-bottom: 20px;
-        }
-        .kayseri-img {
+            padding: 40px;
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
+            max-width: 600px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
-        .kayseri-content {
-            padding: 15px;
+
+        .content-card h1 {
+            color: #333;
+            margin-top: 0;
         }
-        .kayseri-content h4 {
-            font-size: 16px;
-            color: #d81b60;
-            margin-bottom: 6px;
-            font-weight: 700;
-        }
-        .kayseri-content p {
-            font-size: 13px;
+
+        .content-card p {
             color: #555;
             line-height: 1.6;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #8e8e8e;
-            background: #fafafa;
+        /* Mobil Ekranlar İçin Uyumlu Tasarım */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .main-content {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Profil Üst Kısmı -->
-        <div class="profile-header">
-            <div class="avatar-ring">
-                <div class="avatar">👩‍⚖️</div>
-            </div>
-            <div class="profile-info">
-                <h1>Rengarenk dünyam 🌈</h1>
-                <div class="handle">@bacilar_cetesi</div>
-                <div class="stats">
-                    <span><strong>13</strong> gönderi</span>
-                    <span><strong>1.119</strong> takipçi</span>
-                    <span><strong>66.4B</strong> Erişim</span>
-                </div>
-            </div>
+
+    <!-- Sol Menü ve Sekmeler -->
+    <div class="sidebar">
+        <div class="profil-bolum">
+            <img src="profil.jpg" alt="Bacılar Çetesi" class="profil-img">
+            <h2>Bacılar Çetesi 🌸</h2>
+            <p>Rengarenk Dünyam</p>
         </div>
-
-        <!-- Biyografi -->
-        <div class="bio-section">
-            <div class="category">Dijital İçerik Üreticisi</div>
-            <div class="bio-text">Şerife Öğet 👩‍⚖️
-Ortaya karışık vloglar Herşeyde biraz ben biraz siz bacıklarım ❤️ Kayseri 📍</div>
-            <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="insta-btn">Instagram'da Bizi Takip Edin</a>
+        
+        <div class="menu-sekmeler">
+            <a href="#" class="sekme-btn aktif">🏠 Ana Sayfa</a>
+            <a href="https://instagram.com" target="_blank" class="sekme-btn">📸 Instagram</a>
+            <a href="#" class="sekme-btn">🎥 Vloglar</a>
+            <a href="#" class="sekme-btn">✨ Günlük Rutinler</a>
+            <a href="mailto:iletisim@ornek.com" class="sekme-btn">✉️ İletişim</a>
         </div>
+    </div>
 
-        <!-- Menü Sekmeleri -->
-        <nav>
-            <a href="#reklam" class="active">🎥 Reklam & Video Örnekleri</a>
-            <a href="#vloglar">🎬 Vloglar</a>
-            <a href="#kayseri">📍 Kayseri 20'ler Koleksiyonu</a>
-            <a href="#hakkimda">✨ Hakkımda</a>
-        </nav>
-
-        <!-- Reklam & Video Örnekleri Sekmesi -->
-        <div id="reklam" class="section-block">
-            <div class="section-title">🎥 Profesyonel Tanıtım & Seslendirme Vitrini</div>
-            <p class="section-desc">Markanızı kitlemizle buluştururken kullandığımız video oynatıcılar ve hazır seslendirme örneklerimiz aşağıdadır. Oynat tuşuna basarak hemen izleyebilirsiniz!</p>
-
-            <!-- Video Örnek 1 -->
-            <div class="video-showcase-card">
-                <div class="video-container">
-                    <video controls playsinline preload="auto" poster="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-holding-a-shopping-bag-while-walking-41639-large.mp4" type="video/mp4">
-                        Tarayıcınız video oynatmayı desteklemiyor.
-                    </video>
-                </div>
-                <div class="video-info">
-                    <h3>🛍️ Ürün & Alışveriş Deneyimi Reklamı</h3>
-                    <p>Markaların ürün lansmanları ve alışveriş konseptleri için hazırlanan yüksek etkileşimli Reels formatı.</p>
-                    <div class="script-box">
-                        <strong>🎙️ Hazır Seslendirme Metni Örneği:</strong>
-                        "Bacıklarım, günün en heyecanlı anı geldi! Kalitesine bayıldığım, gün boyu koşturmacamda bana eşlik eden bu harika ürünü mutlaka incelemelisiniz. Detaylar açıklamada!"
-                    </div>
-                </div>
-            </div>
-
-            <!-- Video Örnek 2 -->
-            <div class="video-showcase-card">
-                <div class="video-container">
-                    <video controls playsinline preload="auto" poster="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-drinking-coffee-in-bed-4189-large.mp4" type="video/mp4">
-                        Tarayıcınız video oynatmayı desteklemiyor.
-                    </video>
-                </div>
-                <div class="video-info">
-                    <h3>☕ Günlük Yaşam & Kafe / Gıda Tanıtımı</h3>
-                    <p>Sabah rutinleri ve keyifli anların içine doğal bir şekilde entegre edilen marka tanıtım videosu.</p>
-                    <div class="script-box">
-                        <strong>🎙️ Hazır Seslendirme Metni Örneği:</strong>
-                        "Sabah kahvesiz asla diyenler, buraya! Güne enerjik başlamamın sırrı olan bu muazzam lezzetle güne 'merhaba' diyoruz. Kesinlikle denemelisiniz!"
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-box">
-                <h3>📞 Markanız İçin Özel Reklam Teklifi Alın</h3>
-                <p>Ürününüzü en samimi dille kitlemize ulaştıralım. Hemen Instagram üzerinden bizimle iletişime geçin.</p>
-                <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="dm-btn">Instagram DM ile Hemen Başvur</a>
-            </div>
+    <!-- Sağ Ana İçerik Alanı -->
+    <div class="main-content">
+        <div class="content-card">
+            <h1>Hoş Geldiniz! 🌈</h1>
+            <p>Rengarenk dünyamıza ve günlük paylaşımlarımıza buradan ulaşabilirsiniz. Sol taraftaki sekmeleri kullanarak dilediğiniz sayfaya geçiş yapabilir, güncel içeriklerimizi takip edebilirsiniz.</p>
+            <p>İyi ki varsınız bacıklarım! ❤️</p>
         </div>
+    </div>
 
-        <!-- Vloglar Sekmesi -->
-        <div id="vloglar" class="section-block">
-            <div class="section-title">🎬 Ortaya Karışık Vloglar</div>
-            <p class="section-desc">Günün koşturmacası ve keyifli anlar.</p>
-        </div>
-
-        <!-- Kayseri Sekmesi: 20 Gezilecek Yer, 20 Yemek, 20 Kafe ve 20 Görsel -->
-        <div id="kayseri" class="section-block">
-            <div class="section-title">📍 Kayseri Süper Rehberi: 20'ler Serisi</div>
-            <p class="section-desc">Kayseri hakkında bilmeniz gereken ne varsa; 20 eşsiz gezilecek yer, 20 nefis lezzet ve 20 keyifli mekan bu kategorize edilmiş detaylı rehberde bir arada!</p>
-
-            <!-- ================= GEZİLECEK 20 YER ================= -->
-            <div class="kayseri-category-title">🏛️ Kayseri'de Görülmesi Gereken 20 Gezilecek Yer</div>
-
-            <!-- 1 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80" alt="Kayseri Kalesi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>1. Kayseri Kalesi ve Sur İçi</h4>
-                    <p>Şehrin merkezinde yer alan Roma ve Selçuklu dönemlerinden kalma devasa kale; sur içi kültür sokaklarıyla ziyaretçilerini cezbeder.</p>
-                </div>
-            </div>
-
-            <!-- 2 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" alt="Gevher Nesibe Medresesi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>2. Gevher Nesibe Şifaiye Medresesi</h4>
-                    <p>Dünyanın ilk tıp fakültesi ve hastanesi olarak kurulan yapı, günümüzde Tıp Tarihi Müzesi olarak hizmet vermektedir.</p>
-                </div>
-            </div>
-
-            <!-- 3 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Erciyes Dağı" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>3. Erciyes Kayak Merkezi</h4>
-                    <p>3916 metre yüksekliğiyle Türkiye'nin kış turizmi kalbi olan Erciyes, dünya standartlarında pistlere sahiptir.</p>
-                </div>
-            </div>
-
-            <!-- 4 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=80" alt="Kapuzbaşı Şelaleleri" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>4. Kapuzbaşı Şelaleleri</h4>
-                    <p>Yahyalı ilçesinde bulunan, dünyanın en yüksekten dökülen debili şelalelerinden biri olan saklı bir doğa harikasıdır.</p>
-                </div>
-            </div>
-
-            <!-- 5 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80" alt="Koramaz Vadisi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>5. Koramaz Vadisi (UNESCO)</h4>
-                    <p>Yeraltı şehirleri, tarihi güvercinlikleri ve kaya kiliseleriyle UNESCO geçici miras listesinde yer alan büyüleyici vadi.</p>
-                </div>
-            </div>
-
-            <!-- 6 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Soğanlı Vadisi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>6. Soğanlı Vadisi</h4>
-                    <p>Peri bacaları, kaya oyma kiliseleri ve ünlü Soğanlı bez bebekleriyle ünlü tarihi ören yeri.</p>
-                </div>
-            </div>
-
-            <!-- 7 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Sultan Sazlığı" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>7. Sultan Sazlığı Kuş Cenneti</h4>
-                    <p>Yüzlerce kuş türüne ev sahipliği yapan, flamingoların da görülebildiği muazzam sulak alan ve milli park.</p>
-                </div>
-            </div>
-
-            <!-- 8 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&w=600&q=80" alt="Arkeoloji Müzesi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>8. Kayseri Arkeoloji Müzesi</h4>
-                    <p>Kültepe (Kaniş) kazılarında çıkarılan binlerce yıllık asur ticaret tabletleri ve eşsiz eserlerin sergilendiği müze.</p>
-                </div>
-            </div>
-
-            <!-- 9 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=600&q=80" alt="Selçuklu Uygarlığı Müzesi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>9. Selçuklu Uygarlığı Müzesi (Döner Kümbet)</h4>
-                    <p>Çifte Medrese içinde yer alan, Selçuklu dönemine ait bilimsel, sanatsal ve günlük yaşam bulgularının sergilendiği yer.</p>
-                </div>
-            </div>
-
-            <!-- 10 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80" alt="Hunat Hatun Külliyesi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>10. Hunat Hatun Külliyesi</h4>
-                    <p>Alaeddin Keykubat'ın eşi Mahperi Hunat Hatun tarafından 1238'de yaptırılan zarif Selçuklu külliyesi.</p>
-                </div>
-            </div>
-
-            <!-- 11 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" alt="Kayseri Lisesi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>11. Kayseri Lisesi (Milli Mücadele Müzesi)</h4>
-                    <p>Öğrencileri Kurtuluş Savaşı'nda şehit düştüğü için mezun veremeyen tarihi kahramanlık okulu ve müze.</p>
-                </div>
-            </div>
-
-            <!-- 12 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80" alt="Ali Dağı" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>12. Ali Dağı Yeraltı Şehri ve Gökyüzü Sporları</h4>
-                    <p>Yamaç paraşütünün merkezlerinden biri olan, tarihi yeraltı kalıntıları barındıran Talas'ın simge dağı.</p>
-                </div>
-            </div>
-
-            <!-- 13 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Kuşçu Marina" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>13. Kuşçu Marina (Yamula Barajı)</h4>
-                    <p>Kayseri'de deniz keyfi yaşatan, su sporları ve balık restoranlarıyla ünlü baraj gölü sahil tesisi.</p>
-                </div>
-            </div>
-
-            <!-- 14 -->
-            <div class="kayseri-card">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Sahabiye Medresesi" class="kayseri-img">
-                <div class="kayseri-content">
-                    <h4>14. Sahabiye Medresesi</h4>
-                    <p>İlhanlılar döneminde inşa edilen, günümüzde sahaf ve kitap çarşıla
+</body>
+</html>
