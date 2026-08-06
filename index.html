@@ -72,6 +72,12 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
             transition: all 0.2s ease;
             border-left: 4px solid #ff758c;
+            cursor: pointer;
+            text-align: left;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            width: 100%;
         }
 
         .sekme-btn:hover, .sekme-btn.aktif {
@@ -96,8 +102,10 @@
             border-radius: 20px;
             padding: 40px;
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-height: 85vh;
+            overflow-y: auto;
         }
 
         .content-card h1 {
@@ -108,6 +116,45 @@
         .content-card p {
             color: #555;
             line-height: 1.6;
+        }
+
+        /* Gizleme / Gösterme Sınıfları */
+        .sayfa-icerik {
+            display: none;
+        }
+
+        .sayfa-icerik.aktif-icerik {
+            display: block;
+        }
+
+        /* Vlog Listesi Tasarımı */
+        .vlog-listesi {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .vlog-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            font-size: 14px;
+            color: #444;
+            border-left: 3px solid #ff758c;
+        }
+
+        .vlog-badge {
+            background: #ffe6ec;
+            color: #ff758c;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
         }
 
         /* Mobil Ekranlar İçin Uyumlu Tasarım */
@@ -123,6 +170,9 @@
             .main-content {
                 padding: 20px;
             }
+            .content-card {
+                max-height: none;
+            }
         }
     </style>
 </head>
@@ -137,23 +187,75 @@
         </div>
         
         <div class="menu-sekmeler">
-            <a href="#" class="sekme-btn aktif">🏠 Ana Sayfa</a>
-            <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="sekme-btn">📸 Instagram (@bacilar_cetesi)</a>
-            <a href="https://wa.me/905550600769?text=Merhaba,%20reklam%20ve%20iş%20birliği%20için%20ulaşıyorum." target="_blank" class="sekme-btn">🤝 Reklam ve İş Birliği</a>
-            <a href="#" class="sekme-btn">🎥 Vloglar</a>
-            <a href="#" class="sekme-btn">✨ Günlük Rutinler</a>
-            <a href="mailto:iletisim@ornek.com" class="sekme-btn">✉️ İletişim</a>
+            <button class="sekme-btn aktif" onclick="sekmeDegistir('anasayfa', this)">🏠 Ana Sayfa</button>
+            <a href="https://instagram.com/bacilar_cetesi" target="_blank" class="sekme-btn" style="display:block;">📸 Instagram (@bacilar_cetesi)</a>
+            <a href="https://wa.me/905550600769?text=Merhaba,%20reklam%20ve%20iş%20birliği%20için%20ulaşıyorum." target="_blank" class="sekme-btn" style="display:block;">🤝 Reklam ve İş Birliği</a>
+            <button class="sekme-btn" onclick="sekmeDegistir('vloglar', this)">🎥 Vloglar (Örnekler)</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('rutinler', this)">✨ Günlük Rutinler</button>
+            <a href="mailto:iletisim@ornek.com" class="sekme-btn" style="display:block;">✉️ İletişim</a>
         </div>
     </div>
 
     <!-- Sağ Ana İçerik Alanı -->
     <div class="main-content">
         <div class="content-card">
-            <h1>Hoş Geldiniz! 🌈</h1>
-            <p>Rengarenk dünyamıza, günlük vloglarımıza ve iş birliği tekliflerinize buradan ulaşabilirsiniz.</p>
-            <p>İyi ki varsınız bacıklarım! ❤️</p>
+            
+            <!-- ANA SAYFA İÇERİĞİ -->
+            <div id="anasayfa" class="sayfa-icerik aktif-icerik">
+                <h1>Hoş Geldiniz! 🌈</h1>
+                <p>Rengarenk dünyamıza, günlük vloglarımıza ve iş birliği tekliflerinize buradan ulaşabilirsiniz.</p>
+                <p>İyi ki varsınız bacıklarım! Sol taraftaki sekmeleri kullanarak örnek vlog arşivimizi inceleyebilir, reklam ve iş birliği için doğrudan WhatsApp üzerinden iletişime geçebilirsiniz. ❤️</p>
+            </div>
+
+            <!-- VLOGLAR İÇERİĞİ (15 ÖRNEK VLOG) -->
+            <div id="vloglar" class="sayfa-icerik">
+                <h1>Örnek Vlog Arşivi 🎥</h1>
+                <p>Markaların ve iş ortaklarının içerik kalitemizi görebilmesi için örnek vlog başlıklarımız:</p>
+                
+                <div class="vlog-listesi">
+                    <div class="vlog-item"><span>1. Günlük Ev Rutini ve Kahve Keyfi #1</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>2. Kayseri Kapalı Çarşı Alışveriş Vlogu #2</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>3. Hafta Sonu Doğum Günü Kutlaması #3</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>4. Pratik ve Hızlı Akşam Yemeği Menüsü #4</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>5. Ev Dekorasyonu ve Temizlik Alışverişi #5</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>6. Kayseri Mutfağı: Geleneksel Tarifler #6</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>7. Kahve Köşesi Düzenleme ve Yenileme #7</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>8. Bahar Temizliği ve Kombin Önerileri #8</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>9. Şehir Turu ve Doğa Yürüyüşü Anıları #9</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>10. Hafta Sonu Alışveriş ve Ürün Tanıtımı #10</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>11. Cilt Bakım Rutinlerim ve Favoriler #11</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>12. Misafir Ağırlama ve Sunum Hazırlığı #12</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>13. Uzun Yolculuk ve Tatil Anıları #13</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>14. Balkon Düzenleme ve Çiçek Dikimi #14</span><span class="vlog-badge">İzle</span></div>
+                    <div class="vlog-item"><span>15. Dolap Düzenleme ve Kombin Günlüğü #15</span><span class="vlog-badge">İzle</span></div>
+                </div>
+            </div>
+
+            <!-- GÜNLÜK RUTİNLER İÇERİĞİ -->
+            <div id="rutinler" class="sayfa-icerik">
+                <h1>Günlük Rutinler ✨</h1>
+                <p>Her gün yenilenen rengarenk hayatımızdan kesitler, sabah rutinleri ve motivasyon dolu anlar burada yer alıyor.</p>
+            </div>
+
         </div>
     </div>
 
+    <script>
+        function sekmeDegistir(sayfaId, element) {
+            // Tüm içerikleri gizle
+            const içerikler = document.querySelectorAll('.sayfa-icerik');
+            içerikler.forEach(ic => ic.classList.remove('aktif-icerik'));
+
+            // Seçilen içeriği göster
+            document.getElementById(sayfaId).classList.add('aktif-icerik');
+
+            // Aktif buton rengini güncelle
+            const butonlar = document.querySelectorAll('.menu-sekmeler .sekme-btn');
+            butonlar.forEach(btn => btn.classList.remove('aktif'));
+            element.classList.add('aktif');
+        }
+    </script>
+
 </body>
-</html>
+    </html>
+    
