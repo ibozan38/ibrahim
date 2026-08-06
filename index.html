@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rengarenk Dünyam | Instagram Profili</title>
+    <title>Rengarenk Dünyam | Keşif ve Yaşam Blogu</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,27 +12,29 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fafafa;
+            background-color: #f8f9fa;
             color: #262626;
-            padding-bottom: 40px;
+            line-height: 1.6;
         }
-        .profile-container {
-            max-width: 600px;
+        .container {
+            max-width: 800px;
             margin: 0 auto;
             background: #fff;
             min-height: 100vh;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
         }
+        /* Header & Profile */
         .profile-header {
-            padding: 25px 20px;
+            padding: 30px 20px;
             display: flex;
             align-items: center;
             gap: 20px;
-            border-bottom: 1px solid #dbdbdb;
+            background: linear-gradient(135deg, #fff5f8 0%, #ffeef3 100%);
+            border-bottom: 1px solid #eee;
         }
         .avatar-ring {
-            width: 85px;
-            height: 85px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
             display: flex;
@@ -49,99 +51,138 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 34px;
         }
         .profile-info h1 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #262626;
-            margin-bottom: 4px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #d81b60;
+            margin-bottom: 2px;
         }
         .handle {
             font-size: 14px;
-            color: #8e8e8e;
-            margin-bottom: 10px;
+            color: #777;
+            margin-bottom: 8px;
         }
         .stats {
             display: flex;
             gap: 15px;
             font-size: 13px;
+            color: #555;
         }
         .stats span strong {
             color: #262626;
         }
-        .bio-section {
-            padding: 15px 20px;
+        /* Navigation Tabs */
+        nav {
+            display: flex;
+            background: #ffffff;
+            padding: 10px 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
             border-bottom: 1px solid #dbdbdb;
         }
-        .bio-section p {
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
             font-size: 14px;
-            line-height: 1.5;
-            color: #262626;
-            margin-bottom: 12px;
+            white-space: nowrap;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
-        .insta-btn {
+        nav a:hover, nav a.active {
+            background-color: #d81b60;
+            color: white;
+        }
+        /* Content Sections */
+        .section-block {
+            padding: 30px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .section-title {
+            font-size: 20px;
+            color: #d81b60;
+            margin-bottom: 15px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .bio-text {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        /* Cards & Grids */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .content-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #f0f0f0;
+            transition: transform 0.3s;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .card-body h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .card-body p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        /* Button */
+        .action-btn {
             display: block;
             width: 100%;
             text-align: center;
-            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
             color: white;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 12px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 4px 10px rgba(221, 42, 123, 0.2);
+            font-size: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.3);
         }
-        .grid-section {
-            padding: 10px;
-        }
-        .grid-title {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #8e8e8e;
-            text-align: center;
-            padding: 10px 0;
-            font-weight: bold;
-        }
-        .post-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 4px;
-        }
-        .post-card {
-            aspect-ratio: 1 / 1;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 10px;
-            color: #fff;
-            font-size: 12px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-        }
-        .post-card span {
-            background: rgba(0,0,0,0.4);
-            padding: 5px 8px;
-            border-radius: 4px;
-            width: 100%;
-        }
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #8e8e8e;
+            padding: 25px;
+            font-size: 13px;
+            color: #888;
+            background: #fafafa;
         }
     </style>
 </head>
 <body>
-    <div class="profile-container">
+    <div class="container">
+        <!-- Profil Başlığı -->
         <div class="profile-header">
             <div class="avatar-ring">
                 <div class="avatar">🎨</div>
@@ -150,31 +191,97 @@
                 <h1>Rengarenk Dünyam</h1>
                 <div class="handle">@rengarenk_dunyam</div>
                 <div class="stats">
-                    <span><strong>420</strong> Gönderi</span>
-                    <span><strong>15.2K</strong> Takipçi</span>
+                    <span><strong>1.4K</strong> İçerik</span>
+                    <span><strong>48.5K</strong> Takipçi</span>
+                    <span><strong>310K</strong> Beğeni</span>
                 </div>
             </div>
         </div>
 
-        <div class="bio-section">
-            <p>✨ Günlük rutinler, yaşam tarzı ve ev içi keyifli anlar 🌸<br>Hayatın renklerini birlikte keşfediyoruz! ☕️🏡</p>
-            <a href="https://instagram.com" target="_blank" class="insta-btn">Instagram'da Takip Et & Göz At</a>
-        </div>
+        <!-- Menü Sekmeleri -->
+        <nav>
+            <a href="#dunya" class="active">🌍 Dünya Güzellikleri</a>
+            <a href="#bilgiler">💡 İlginç Konular</a>
+            <a href="#rutinler">☕ Günlük Yaşam</a>
+            <a href="#hakkimda">✨ Hakkımda</a>
+        </nav>
 
-        <div class="grid-section">
-            <div class="grid-title">En Son Paylaşımlar & Vloglar</div>
-            <div class="post-grid">
-                <a href="#" class="post-card"><span>Sabah Rutini ☕️</span></a>
-                <a href="#" class="post-card"><span>Ev Düzeni 🏡</span></a>
-                <a href="#" class="post-card"><span>Günün Kombini ✨</span></a>
-                <a href="#" class="post-card"><span>Tarifler 🍰</span></a>
-                <a href="#" class="post-card"><span>Alışveriş 🛍️</span></a>
-                <a href="#" class="post-card"><span>Keyif Anları 🌸</span></a>
+        <!-- Dünya Güzellikleri Bölümü -->
+        <div id="dunya" class="section-block">
+            <div class="section-title">🌍 Dünyanın Büyüleyici Güzellikleri</div>
+            <p class="bio-text">Dünyanın dört bir yanından göz kamaştıran manzaraları, saklı cennetleri ve nefis rotaları keşfedin.</p>
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=600&q=80" alt="Kuzey Işıkları" class="card-img">
+                    <div class="card-body">
+                        <h3>Kuzey Işıkları (Aurora)</h3>
+                        <p>Kutup bölgelerinde gökyüzünü dans eden renklerle süsleyen muazzam doğa olayı.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1514896856512-f4c901460456?auto=format&fit=crop&w=600&q=80" alt="Venedik" class="card-img">
+                    <div class="card-body">
+                        <h3>Kanallar Şehri Venedik</h3>
+                        <p>Tarihi köprüleri ve romantik su yollarıyla İtalya'nın masalsı rüyası.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Maldivler" class="card-img">
+                    <div class="card-body">
+                        <h3>Saklı Cennet Maldivler</h3>
+                        <p>Turkuaz rengi suları ve mercan adalarıyla huzurun doruk noktası.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <!-- İlginç Konular Bölümü -->
+        <div id="bilgiler" class="section-block">
+            <div class="section-title">💡 İlginç Konular & Bilgiler</div>
+            <p class="bio-text">Hayrete düşüren, az bilinen gerçekler ve merak uyandıran sıradışı yaşam hikayeleri.</p>
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Doğa" class="card-img">
+                    <div class="card-body">
+                        <h3>Doğanın Gizemleri</h3>
+                        <p>Bilim insanlarını bile şaşırtmaya devam eden sıradışı ekosistemler ve sırlar.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80" alt="Orman" class="card-img">
+                    <div class="card-body">
+                        <h3>Ağaçların Gizli Dili</h3>
+                        <p>Ormanların kendi aralarında kökler aracılığıyla nasıl iletişim kurduğunu biliyor musunuz?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Günlük Yaşam ve Rutinler -->
+        <div id="rutinler" class="section-block">
+            <div class="section-title">☕ Günlük Yaşam & Rutinler</div>
+            <p class="bio-text">Günü güzelleştiren kahve molaları, ev içi dekorasyon fikirleri ve pratik motivasyon ipuçları.</p>
+            <div class="content-grid">
+                <div class="content-card">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Kahve" class="card-img">
+                    <div class="card-body">
+                        <h3>Sabah Rutinleri</h3>
+                        <p>Güne zinde, pozitif ve enerjik başlamak için uygulayabileceğiniz en iyi alışkanlıklar.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="https://instagram.com" target="_blank" class="action-btn">Instagram'da Tüm Paylaşımları Gör</a>
+        </div>
+
+        <!-- Hakkımda Bölümü -->
+        <div id="hakkimda" class="section-block">
+            <div class="section-title">✨ Hakkımda</div>
+            <p class="bio-text">Rengarenk Dünyam sayfasına hoş geldiniz! Hayatın küçük detaylarındaki güzellikleri, estetik kareleri, seyahatleri ve günlük yaşamın neşesini burada hep birlikte paylaşıyoruz. Renkli dünyamda bana eşlik ettiğiniz için teşekkürler!</p>
+        </div>
+
+        <!-- Footer -->
         <footer>
-            <p>&copy; 2026 Rengarenk Dünyam</p>
+            <p>&copy; 2026 Rengarenk Dünyam. Tüm hakları saklıdır.</p>
         </footer>
     </div>
 </body>
