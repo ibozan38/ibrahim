@@ -164,6 +164,83 @@
             color: white;
         }
 
+        /* Yapay Zeka Sohbet Arayüzü */
+        .chat-container {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            height: 350px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 15px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-right: 5px;
+            margin-bottom: 10px;
+        }
+
+        .bot-message {
+            background: #ffe6ec;
+            color: #333;
+            padding: 10px 14px;
+            border-radius: 12px 12px 12px 2px;
+            max-width: 80%;
+            font-size: 14px;
+            line-height: 1.4;
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 12px 12px 2px 12px;
+            max-width: 80%;
+            font-size: 14px;
+            line-height: 1.4;
+            align-self: flex-end;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .chat-input-area input:focus {
+            border-color: #ff758c;
+        }
+
+        .chat-input-area button {
+            background: #ff758c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .chat-input-area button:hover {
+            background: #ff526d;
+        }
+
         /* Mobil Ekranlar İçin Uyumlu Tasarım */
         @media (max-width: 768px) {
             body {
@@ -199,6 +276,7 @@
             <a href="https://wa.me/905550600769?text=Merhaba,%20reklam%20ve%20iş%20birliği%20için%20ulaşıyorum." target="_blank" class="sekme-btn" style="display:block;">🤝 Reklam ve İş Birliği</a>
             <button class="sekme-btn" onclick="sekmeDegistir('vloglar', this)">🎥 Vloglar (Örnekler)</button>
             <button class="sekme-btn" onclick="sekmeDegistir('rutinler', this)">✨ Günlük Rutinler</button>
+            <button class="sekme-btn" onclick="sekmeDegistir('asistan', this)">🤖 Yapay Asistan</button>
             <a href="mailto:iletisim@ornek.com" class="sekme-btn" style="display:block;">✉️ İletişim</a>
         </div>
     </div>
@@ -211,10 +289,10 @@
             <div id="anasayfa" class="sayfa-icerik aktif-icerik">
                 <h1>Hoş Geldiniz! 🌈</h1>
                 <p>Rengarenk dünyamıza, günlük vloglarımıza ve iş birliği tekliflerinize buradan ulaşabilirsiniz.</p>
-                <p>İyi ki varsınız bacıklarım! Sol taraftaki sekmeleri kullanarak örnek vlog arşivimizi inceleyebilir, reklam ve iş birliği için doğrudan WhatsApp üzerinden iletişime geçebilirsiniz. ❤️</p>
+                <p>İyi ki varsınız bacıklarım! Sol taraftaki sekmeleri kullanarak örnek vlog arşivimizi inceleyebilir, yapay zeka asistanımızla sohbet edebilir veya reklam için WhatsApp üzerinden iletişime geçebilirsiniz. ❤️</p>
             </div>
 
-            <!-- VLOGLAR İÇERİĞİ (15 ÖRNEK VLOG) -->
+            <!-- VLOGLAR İÇERİĞİ -->
             <div id="vloglar" class="sayfa-icerik">
                 <h1>Örnek Vlog Arşivi 🎥</h1>
                 <p>Markaların ve iş ortaklarının içerik kalitemizi görebilmesi için örnek vlog başlıklarımız:</p>
@@ -244,6 +322,22 @@
                 <p>Her gün yenilenen rengarenk hayatımızdan kesitler, sabah rutinleri ve motivasyon dolu anlar burada yer alıyor.</p>
             </div>
 
+            <!-- YAPAY ZEZA ASİSTAN İÇERİĞİ -->
+            <div id="asistan" class="sayfa-icerik">
+                <h1>Rengarenk Asistan 🤖</h1>
+                <p>Sitemize özel yapay zeka asistanına dilediğin soruyu sorabilirsin!</p>
+                
+                <div class="chat-container">
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="bot-message">Merhaba! Ben Rengarenk Dünyam'ın yapay zeka asistanıyım. Sana nasıl yardımcı olabilirim? 🌸</div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="user-input" placeholder="Bir şeyler yazın..." onkeypress="handleKeyPress(event)">
+                        <button onclick="sendMessage()">Gönder</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -258,8 +352,50 @@
             butonlar.forEach(btn => btn.classList.remove('aktif'));
             element.classList.add('aktif');
         }
+
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const messageText = input.value.trim();
+            if(!messageText) return;
+
+            const chatMessages = document.getElementById('chat-messages');
+
+            // Kullanıcı mesajı
+            const userMsg = document.createElement('div');
+            userMsg.className = 'user-message';
+            userMsg.textContent = messageText;
+            chatMessages.appendChild(userMsg);
+
+            input.value = '';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Yapay zeka yanıt simülasyonu
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'bot-message';
+                
+                const textLower = messageText.toLowerCase();
+                if(textLower.includes('reklam') || textLower.includes('iş birliği')) {
+                    botMsg.textContent = 'Reklam ve iş birliği teklifleriniz için sol menüdeki "Reklam ve İş Birliği" sekmesine tıklayarak doğrudan WhatsApp hattımıza (0555 060 07 69) bağlanabilirsiniz! 🤝';
+                } else if(textLower.includes('vlog') || textLower.includes('video')) {
+                    botMsg.textContent = 'Örnek vlog arşivimizi incelemek için sol menüdeki "Vloglar (Örnekler)" sekmesine göz atabilirsiniz! 🎥';
+                } else if(textLower.includes('iletişim') || textLower.includes('telefon') || textLower.includes('ulaş')) {
+                    botMsg.textContent = 'Bize 0555 060 07 69 numaralı WhatsApp hattımızdan veya e-posta yoluyla ulaşabilirsiniz. 🌸';
+                } else {
+                    botMsg.textContent = 'Rengarenk Dünyamıza hoş geldiniz! Sitemizle ilgili her konuda size yardımcı olmaktan mutluluk duyarım. Başka ne öğrenmek istersiniz? ✨';
+                }
+
+                chatMessages.appendChild(botMsg);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 600);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
     </script>
 
 </body>
-    </html>
-    
+</html>
