@@ -164,81 +164,181 @@
             color: white;
         }
 
-        /* Yapay Zeka Sohbet Arayüzü */
-        .chat-container {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
+        /* --- KEDİ YAPAY ZEKA ASİSTAN (YÜZEN WIDGET) --- */
+        .floating-cat-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
             display: flex;
             flex-direction: column;
-            height: 350px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-top: 15px;
+            align-items: flex-end;
         }
 
-        .chat-messages {
+        /* Sevimli Konuşma Balonu */
+        .cat-speech-bubble {
+            background: white;
+            color: #ff758c;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+            border: 2px solid #ff758c;
+            animation: bounceBubble 2s infinite ease-in-out;
+            max-width: 220px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cat-speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 25px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #ff758c;
+        }
+
+        /* Kedi Figürü Butonu */
+        .cat-button {
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.4);
+            border: 3px solid white;
+            font-size: 32px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: catFloat 3s infinite ease-in-out;
+        }
+
+        .cat-button:hover {
+            transform: scale(1.15) rotate(10deg);
+        }
+
+        /* Kedi Sohbet Penceresi */
+        .cat-chat-modal {
+            display: none;
+            position: absolute;
+            bottom: 85px;
+            right: 0;
+            width: 320px;
+            height: 420px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            flex-direction: column;
+            overflow: hidden;
+            border: 2px solid #ffe6ec;
+            animation: modalAppear 0.3s ease;
+        }
+
+        .cat-chat-header {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        .cat-chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .cat-chat-messages {
             flex: 1;
+            padding: 15px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
             gap: 10px;
-            padding-right: 5px;
-            margin-bottom: 10px;
+            background: #fff9fb;
         }
 
-        .bot-message {
+        .cat-msg-bot {
             background: #ffe6ec;
             color: #333;
             padding: 10px 14px;
             border-radius: 12px 12px 12px 2px;
             max-width: 80%;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.4;
             align-self: flex-start;
         }
 
-        .user-message {
-            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+        .cat-msg-user {
+            background: #ff758c;
             color: white;
             padding: 10px 14px;
             border-radius: 12px 12px 2px 12px;
             max-width: 80%;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1.4;
             align-self: flex-end;
         }
 
-        .chat-input-area {
+        .cat-chat-input-area {
             display: flex;
+            padding: 10px;
+            background: white;
+            border-top: 1px solid #eee;
             gap: 8px;
         }
 
-        .chat-input-area input {
+        .cat-chat-input-area input {
             flex: 1;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border: 1px solid #ddd;
-            border-radius: 20px;
+            border-radius: 15px;
             outline: none;
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        .chat-input-area input:focus {
+        .cat-chat-input-area input:focus {
             border-color: #ff758c;
         }
 
-        .chat-input-area button {
+        .cat-chat-input-area button {
             background: #ff758c;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 8px 14px;
+            border-radius: 15px;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.2s;
+            font-size: 13px;
         }
 
-        .chat-input-area button:hover {
-            background: #ff526d;
+        /* Animasyonlar */
+        @keyframes catFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes bounceBubble {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @keyframes modalAppear {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         /* Mobil Ekranlar İçin Uyumlu Tasarım */
@@ -256,6 +356,10 @@
             }
             .content-card {
                 max-height: none;
+            }
+            .cat-chat-modal {
+                width: 290px;
+                right: -10px;
             }
         }
     </style>
@@ -276,7 +380,6 @@
             <a href="https://wa.me/905550600769?text=Merhaba,%20reklam%20ve%20iş%20birliği%20için%20ulaşıyorum." target="_blank" class="sekme-btn" style="display:block;">🤝 Reklam ve İş Birliği</a>
             <button class="sekme-btn" onclick="sekmeDegistir('vloglar', this)">🎥 Vloglar (Örnekler)</button>
             <button class="sekme-btn" onclick="sekmeDegistir('rutinler', this)">✨ Günlük Rutinler</button>
-            <button class="sekme-btn" onclick="sekmeDegistir('asistan', this)">🤖 Yapay Asistan</button>
             <a href="mailto:iletisim@ornek.com" class="sekme-btn" style="display:block;">✉️ İletişim</a>
         </div>
     </div>
@@ -289,7 +392,7 @@
             <div id="anasayfa" class="sayfa-icerik aktif-icerik">
                 <h1>Hoş Geldiniz! 🌈</h1>
                 <p>Rengarenk dünyamıza, günlük vloglarımıza ve iş birliği tekliflerinize buradan ulaşabilirsiniz.</p>
-                <p>İyi ki varsınız bacıklarım! Sol taraftaki sekmeleri kullanarak örnek vlog arşivimizi inceleyebilir, yapay zeka asistanımızla sohbet edebilir veya reklam için WhatsApp üzerinden iletişime geçebilirsiniz. ❤️</p>
+                <p>İyi ki varsınız bacıklarım! Sağ köşedeki minik kedi asistanımıza tıklayarak her an destek alabilir, sol taraftaki sekmelerden vloglarımızı inceleyebilirsiniz. ❤️</p>
             </div>
 
             <!-- VLOGLAR İÇERİĞİ -->
@@ -311,7 +414,7 @@
                     <div class="vlog-item"><span>11. Cilt Bakım Rutinlerim ve Favoriler #11</span><a href="https://www.youtube.com/results?search_query=Cilt+Bakim+Rutinlerim+ve+Favoriler" target="_blank" class="vlog-badge">İzle</a></div>
                     <div class="vlog-item"><span>12. Misafir Ağırlama ve Sunum Hazırlığı #12</span><a href="https://www.youtube.com/results?search_query=Misafir+Agirlama+ve+Sunum+Hazirligi" target="_blank" class="vlog-badge">İzle</a></div>
                     <div class="vlog-item"><span>13. Uzun Yolculuk ve Tatil Anıları #13</span><a href="https://www.youtube.com/results?search_query=Uzun+Yolculuk+ve+Tatil+Anilari" target="_blank" class="vlog-badge">İzle</a></div>
-                    <div class="vlog-item"><span>14. Balkon Düzenleme ve Çiçek Dikimi #14</span><a href="https://www.youtube.com/results?search_query=Balkon+Duzenleme+ve+Cicek+Dikimi" target="_blank" class="vlog-badge">İzle</a></div>
+                    <div class="vlog-item"><span>14. Balkon Düzenleme ve Çiçek Dikimi #14</span><a href="https://www.youtube.com/results?search_query=Balkan+Duzenleme+ve+Cicek+Dikimi" target="_blank" class="vlog-badge">İzle</a></div>
                     <div class="vlog-item"><span>15. Dolap Düzenleme ve Kombin Günlüğü #15</span><a href="https://www.youtube.com/results?search_query=Dolap+Duzenleme+ve+Kombin+Gunlugu" target="_blank" class="vlog-badge">İzle</a></div>
                 </div>
             </div>
@@ -322,22 +425,34 @@
                 <p>Her gün yenilenen rengarenk hayatımızdan kesitler, sabah rutinleri ve motivasyon dolu anlar burada yer alıyor.</p>
             </div>
 
-            <!-- YAPAY ZEZA ASİSTAN İÇERİĞİ -->
-            <div id="asistan" class="sayfa-icerik">
-                <h1>Rengarenk Asistan 🤖</h1>
-                <p>Sitemize özel yapay zeka asistanına dilediğin soruyu sorabilirsin!</p>
-                
-                <div class="chat-container">
-                    <div id="chat-messages" class="chat-messages">
-                        <div class="bot-message">Merhaba! Ben Rengarenk Dünyam'ın yapay zeka asistanıyım. Sana nasıl yardımcı olabilirim? 🌸</div>
-                    </div>
-                    <div class="chat-input-area">
-                        <input type="text" id="user-input" placeholder="Bir şeyler yazın..." onkeypress="handleKeyPress(event)">
-                        <button onclick="sendMessage()">Gönder</button>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
 
+    <!-- SEVİMLİ KEDİ ASİSTAN WIDGET (SİTENİN HER YERİNDE) -->
+    <div class="floating-cat-container">
+        <!-- Konuşma Balonu -->
+        <div id="cat-bubble" class="cat-speech-bubble" onclick="toggleCatChat()">
+            Miyav! Yardıma mı ihtiyacın var? 🐾
+        </div>
+        
+        <!-- Kedi İkonu Butonu -->
+        <div class="cat-button" onclick="toggleCatChat()" title="Rengarenk Kedi Asistan">
+            🐱
+        </div>
+
+        <!-- Açılabilir Sohbet Penceresi -->
+        <div id="cat-chat-modal" class="cat-chat-modal">
+            <div class="cat-chat-header">
+                <span>🌸 Rengarenk Kedi Asistan</span>
+                <button class="cat-chat-close" onclick="toggleCatChat()">×</button>
+            </div>
+            <div id="cat-chat-messages" class="cat-chat-messages">
+                <div class="cat-msg-bot">Miyav! Rengarenk Dünyamıza hoş geldin! Sana vloglar, reklam teklifleri veya iletişim konusunda yardımcı olabilirim. 🐾</div>
+            </div>
+            <div class="cat-chat-input-area">
+                <input type="text" id="cat-user-input" placeholder="Kediciğe bir şey sor..." onkeypress="handleCatKeyPress(event)">
+                <button onclick="sendCatMessage()">Gönder</button>
+            </div>
         </div>
     </div>
 
@@ -353,36 +468,48 @@
             element.classList.add('aktif');
         }
 
-        function sendMessage() {
-            const input = document.getElementById('user-input');
+        // Kedi Sohbet Penceresini Aç/Kapat
+        function toggleCatChat() {
+            const modal = document.getElementById('cat-chat-modal');
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            } else {
+                modal.style.display = 'flex';
+                document.getElementById('cat-user-input').focus();
+            }
+        }
+
+        // Kedicik ile Mesajlaşma
+        function sendCatMessage() {
+            const input = document.getElementById('cat-user-input');
             const messageText = input.value.trim();
             if(!messageText) return;
 
-            const chatMessages = document.getElementById('chat-messages');
+            const chatMessages = document.getElementById('cat-chat-messages');
 
-            // Kullanıcı mesajı
+            // Kullanıcı Mesajı
             const userMsg = document.createElement('div');
-            userMsg.className = 'user-message';
+            userMsg.className = 'cat-msg-user';
             userMsg.textContent = messageText;
             chatMessages.appendChild(userMsg);
 
             input.value = '';
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // Yapay zeka yanıt simülasyonu
+            // Kediciğin Akıllı Yanıtı
             setTimeout(() => {
                 const botMsg = document.createElement('div');
-                botMsg.className = 'bot-message';
+                botMsg.className = 'cat-msg-bot';
                 
                 const textLower = messageText.toLowerCase();
                 if(textLower.includes('reklam') || textLower.includes('iş birliği')) {
-                    botMsg.textContent = 'Reklam ve iş birliği teklifleriniz için sol menüdeki "Reklam ve İş Birliği" sekmesine tıklayarak doğrudan WhatsApp hattımıza (0555 060 07 69) bağlanabilirsiniz! 🤝';
+                    botMsg.textContent = 'Miyav! Reklam ve iş birliği için sol menüdeki WhatsApp butonuna tıklayarak doğrudan ulaşabilirsin! 🤝';
                 } else if(textLower.includes('vlog') || textLower.includes('video')) {
-                    botMsg.textContent = 'Örnek vlog arşivimizi incelemek için sol menüdeki "Vloglar (Örnekler)" sekmesine göz atabilirsiniz! 🎥';
-                } else if(textLower.includes('iletişim') || textLower.includes('telefon') || textLower.includes('ulaş')) {
-                    botMsg.textContent = 'Bize 0555 060 07 69 numaralı WhatsApp hattımızdan veya e-posta yoluyla ulaşabilirsiniz. 🌸';
+                    botMsg.textContent = 'Harika videolarımız sol menüdeki "Vloglar" sekmesinde seni bekliyor miyav! 🎥';
+                } else if(textLower.includes('iletişim') || textLower.includes('ulaş')) {
+                    botMsg.textContent = 'Bize 0555 060 07 69 numaralı WhatsApp hattımızdan her zaman yazabilirsin! 🌸';
                 } else {
-                    botMsg.textContent = 'Rengarenk Dünyamıza hoş geldiniz! Sitemizle ilgili her konuda size yardımcı olmaktan mutluluk duyarım. Başka ne öğrenmek istersiniz? ✨';
+                    botMsg.textContent = 'Miyav! Sitemizde keyifli gezintiler dilerim bacıcığım, başka ne öğrenmek istersin? ✨';
                 }
 
                 chatMessages.appendChild(botMsg);
@@ -390,12 +517,4 @@
             }, 600);
         }
 
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
-        }
-    </script>
-
-</body>
-</html>
+        function handleCatKey
